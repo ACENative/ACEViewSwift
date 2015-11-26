@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FB5E6D4EEDC6AA71A830CD08BB49E4344D22F0EE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FB5E6D4EEDC6AA71A830CD08BB49E4344D22F0EE" : 0,
+    "6AA9B563339F4175433F6583E018B0E6CF800437" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D6537212-0CDB-43D4-9634-8D2B34DC3D8D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FB5E6D4EEDC6AA71A830CD08BB49E4344D22F0EE" : "ACEViewSwift\/",
+    "6AA9B563339F4175433F6583E018B0E6CF800437" : "ACEViewSwift\/ACEBuilds\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ACEViewSwift",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ACEViewSwift.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ajaxorg\/ace-builds.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6AA9B563339F4175433F6583E018B0E6CF800437"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ACENative\/ACEViewSwift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FB5E6D4EEDC6AA71A830CD08BB49E4344D22F0EE"
+    }
+  ]
+}
