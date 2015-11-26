@@ -2,7 +2,7 @@
 
 Use the wonderful [ACE editor](http://ace.ajax.org/) in your Swift Cocoa applications.
 
-![ACEView example](Screenshots/Demo Window.png)
+![ACEView example](https://raw.github.com/ACENative/ACEViewSwift/master/Screenshots/Demo%20window.png)
 
 For great justice.
 
