@@ -680,6 +680,18 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
         printingView = WebView(frame: NSRect(x: 0.0, y: 0.0, width: 300.0, height: 1.0))
         printingView.mainFrame.frameView.allowsScrolling = false
         printingView.UIDelegate = self
+        
+        addSubview(webView)
+        borderType = .BezelBorder
+        textFinder = NSTextFinder()
+        textFinder.client = self
+        textFinder.findBarContainer = self
+        resizeWebView()
+        let bundle = NSBundle(forClass: ACEView.self)
+        let javascriptDirectory = aceJavascriptDirectoryPath()
+        let htmlPath = htmlPageFilePath()
+        let html = try! String(contentsOfFile: htmlPath, encoding: NSUTF8StringEncoding).stringByReplacingOccurrencesOfString(ACE_JAVASCRIPT_DIRECTORY, withString: javascriptDirectory)
+        webView.mainFrame.loadHTMLString(html, baseURL: bundle.bundleURL)
     }
     
     override init(frame frameRect: NSRect) {
@@ -694,17 +706,6 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
     
     public override func awakeFromNib() {
         super.awakeFromNib()
-        addSubview(webView)
-        borderType = .BezelBorder
-        textFinder = NSTextFinder()
-        textFinder.client = self
-        textFinder.findBarContainer = self
-        resizeWebView()
-        let bundle = NSBundle(forClass: ACEView.self)
-        let javascriptDirectory = aceJavascriptDirectoryPath()
-        let htmlPath = htmlPageFilePath()
-        let html = try! String(contentsOfFile: htmlPath, encoding: NSUTF8StringEncoding).stringByReplacingOccurrencesOfString(ACE_JAVASCRIPT_DIRECTORY, withString: javascriptDirectory)
-        webView.mainFrame.loadHTMLString(html, baseURL: bundle.bundleURL)
     }
     
     public override var borderType: NSBorderType {
