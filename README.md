@@ -1,6 +1,8 @@
-# ACEViewSwift
+# ACEViewSwift 
 
 Use the wonderful [ACE editor](http://ace.ajax.org/) in your Swift Cocoa applications.
+
+[![Build Status](https://travis-ci.org/ACENative/ACEViewSwift.svg)](https://travis-ci.org/ACENative/ACEViewSwift)
 
 ![ACEView example](https://raw.github.com/ACENative/ACEViewSwift/master/Screenshots/Demo%20window.png)
 
