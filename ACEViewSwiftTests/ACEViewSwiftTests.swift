@@ -9,8 +9,6 @@
 import XCTest
 @testable import ACEViewSwift
 
-
-
 class ACEViewSwiftTests: XCTestCase {
     
     class ACEDelegate: ACEViewDelegate {
@@ -97,6 +95,32 @@ class ACEViewSwiftTests: XCTestCase {
             self.aceView.theme = newTheme
             XCTAssertEqual(self.aceView.theme, ACETheme.Monokai)
             XCTAssertEqual(self.aceView.theme.name, "monokai", "Mode should be now changed to 'Monokai'")
+        }
+        
+        wait()
+    }
+    
+    func testWrapBehavioursEnabled() {
+        let readyExpectation = expectationWithDescription("onReady")
+        
+        aceView.onReady = {
+            readyExpectation.fulfill()
+            XCTAssertEqual(self.aceView.wrappingBehavioursEnabled, true, "Wrapping behaviours should be turned on by default")
+            self.aceView.wrappingBehavioursEnabled = false
+            XCTAssertEqual(self.aceView.wrappingBehavioursEnabled, false, "Wrapping beahviours should be now changed to false")
+        }
+        
+        wait()
+    }
+    
+    func testSoftWrap() {
+        let readyExpectation = expectationWithDescription("onReady")
+        
+        aceView.onReady = {
+            readyExpectation.fulfill()
+            XCTAssertEqual(self.aceView.useSoftWrap, false, "Soft wrapping should be turned off by default")
+            self.aceView.useSoftWrap = true
+            XCTAssertEqual(self.aceView.useSoftWrap, true, "Soft wrapping should be now changed to true")
         }
         
         wait()
