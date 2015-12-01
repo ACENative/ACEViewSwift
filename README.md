@@ -8,7 +8,7 @@ For great justice.
 
 # Documentation
 
-Most of the APIs are already properly documented and available through Xcode's quick documentation, but a proper documentation is coming soon :)
+ACEViewSwift's documentation is done via [Jazzy](https://github.com/realm/jazzy) and [can be found here](http://acenative.github.io/ACEViewSwift/)
 
 # Usage
 
