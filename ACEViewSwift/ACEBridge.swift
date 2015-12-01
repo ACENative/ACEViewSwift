@@ -33,10 +33,20 @@ class ACEBridgedObject {
 /*--------------------------------------------------------------------------------*/
 
 class ACESession: ACEBridgedObject {
+    
+    func getOption(option: String) -> JSValue {
+        return jsCall(arguments: [option])
+    }
+    
+    func setOptions(options: [String:AnyObject]) {
+        jsCall(arguments: [options])
+    }
+    
+    /*--------------------------------------------------------------------------------*/
 
     func getMode() -> ACEMode {
-        let modeName = jsCall().toString()
-        return ACEMode(name: modeName)
+        let modeName = getOption("mode").toString().componentsSeparatedByString("/")
+        return ACEMode(name: modeName.last!)
     }
 
     func setMode(mode: ACEMode) {
@@ -146,8 +156,8 @@ class ACEEditor: ACEBridgedObject {
     /*--------------------------------------------------------------------------------*/
 
     func getTheme() -> ACETheme {
-        let themeName = jsCall().toString()
-        return ACETheme(name: themeName)
+        let themeName = getOption("theme").toString().componentsSeparatedByString("/")
+        return ACETheme(name: themeName.last!)
     }
     
     func setTheme(theme: ACETheme) {

@@ -221,7 +221,9 @@ public enum ACETheme: Int {
     VibrantInk,
     Xcode,
     
-    Count  // keep track of the enum size automatically
+    Count,  // keep track of the enum size automatically
+    
+    None
     
     public static func themeNames() -> [String] {
         return [
@@ -288,16 +290,21 @@ public enum ACETheme: Int {
     }
     
     var name: String {
+        guard self != .None else { return "None" }
         return ACETheme.themeNames()[self.rawValue]
     }
     
     var humanName: String {
+        guard self != .None else { return "None" }
         return ACETheme.humanThemeNames()[self.rawValue]
     }
     
     init(name: String) {
-        let index = ACETheme.themeNames().indexOf(name)!
-        self = ACETheme(rawValue: index)!
+        if let index = ACETheme.themeNames().indexOf(name) {
+            self = ACETheme(rawValue: index)!
+        } else {
+            self = ACETheme.None
+        }
     }
 }
 
