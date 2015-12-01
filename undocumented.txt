@@ -1,0 +1,111 @@
+ACEView.swift
+	public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
+	optional func printFooterHeight() -> Float
+	optional func drawPrintFooterForPage(page: Int, inRect: NSRect)
+	optional func endPrintOperation()
+	public var firstSelectedRange: NSRange = NSRange()
+	public override func drawRect(dirtyRect: NSRect)
+	public override func resizeSubviewsWithOldSize(oldSize: NSSize)
+	public var onReady: (() -> Void)?
+	public func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!)
+	public func webViewHeaderHeight(sender: WebView!) -> Float
+	public func webViewFooterHeight(sender: WebView!) -> Float
+	public func webView(sender: WebView!, drawHeaderInRect rect: NSRect)
+	public func webView(sender: WebView!, drawFooterInRect rect: NSRect)
+	public var editable: Bool
+	public required init?(coder: NSCoder)
+	public override func awakeFromNib()
+	public override var borderType: NSBorderType
+	@objc public func aceTextDidChange()
+	public override func performTextFinderAction(sender: AnyObject?)
+	public func scrollRangeToVisible(range: NSRange)
+	public func replaceCharactersInRange(range: NSRange, withString string: String)
+Enums.swift
+	ASCIIDoc,
+	C9Search,
+	CPP,
+	Clojure,
+	Coffee,
+	Coldfusion,
+	CSharp,
+	CSS,
+	Diff,
+	GLSL,
+	Golang,
+	Groovy,
+	Haxe,
+	HTML,
+	Jade,
+	Java,
+	JavaScript,
+	JSON,
+	JSP,
+	JSX,
+	Latex,
+	LESS,
+	Liquid,
+	Lua,
+	Luapage,
+	Markdown,
+	OCaml,
+	Perl,
+	PGSQL,
+	PHP,
+	Powershell,
+	Python,
+	ObjC,
+	Ruby,
+	SCAD,
+	Scala,
+	SCSS,
+	SH,
+	SQL,
+	SVG,
+	Tcl,
+	Text,
+	Textile,
+	Typescript,
+	XML,
+	XQuery,
+	YAML,
+	Count // keep track of the enum size automatically
+	Ambiance = 0,
+	Chrome,
+	Clouds,
+	CloudsMidnight,
+	Cobalt,
+	CrimsonEditor,
+	Dawn,
+	Dreamweaver,
+	Eclipse,
+	Github,
+	IdleFingers,
+	Merbivore,
+	MerbivoreSoft,
+	MonoIndustrial,
+	Monokai,
+	PastelOnDark,
+	SolarizedDark,
+	SolarizedLight,
+	Textmate,
+	Tomorrow,
+	TomorrowNight,
+	TomorrowNightBlue,
+	TomorrowNightBright,
+	TomorrowNightEighties,
+	Twilight,
+	VibrantInk,
+	Xcode,
+	Count,  // keep track of the enum size automatically
+	None
+	public static func themeNames() -> [String]
+	public static func humanThemeNames() -> [String]
+	public enum ACEKeyboardHandler: Int
+	case Ace, Emacs, Vim,
+	case Ace, Emacs, Vim,
+	case Ace, Emacs, Vim,
+	Count // keep track of the enum size automatically
+	public static func commands() -> [String]
+	public static func humanNames() -> [String]
+Classes.swift
+	public class ACESearchItem: NSObject

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a title="  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> Docs</a> (32% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" />
+          Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes.html#/s:C12ACEViewSwift13ACESearchItem">ACESearchItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ACEView.html">ACEView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Global Variables.html#/s:v12ACEViewSwift32ACETextDidEndEditingNotificationSS">ACETextDidEndEditingNotification</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/ACEKeyboardHandler.html">ACEKeyboardHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ACEMode.html">ACEMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ACETheme.html">ACETheme</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/ACEViewDelegate.html">ACEViewDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <a href='#aceviewswift' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='aceviewswift'>ACEViewSwift</h1>
+
+<p>Use the wonderful <a href="http://ace.ajax.org/">ACE editor</a> in your Swift Cocoa applications.</p>
+
+<p><img src="https://raw.github.com/ACENative/ACEViewSwift/master/Screenshots/Demo%20window.png" alt="ACEView example"></p>
+
+<p>For great justice.</p>
+<a href='#documentation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='documentation'>Documentation</h1>
+
+<p>Most of the APIs are already properly documented and available through Xcode&rsquo;s quick documentation, but a proper documentation is coming soon :)</p>
+<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='usage'>Usage</h1>
+
+<ol>
+<li>Clone the repo</li>
+<li>Run <code>git submodule update --init --recursive</code> (for the dependencies)</li>
+<li>Build the framework target</li>
+<li>Add it into your Swift project</li>
+<li><code>import ACEViewSwift</code> into your files in order to use it</li>
+</ol>
+
+<p><em>Note</em>: A pod will be released soon to simplify installation</p>
+
+<p><img src="https://raw.github.com/faceleg/ACEView/master/Collateral/ace-xib.jpg" alt="ACEView XIB"></p>
+
+<p>Make sure you&rsquo;ve got an IBOutlet in your view controller, and bind that bad girl:</p>
+
+<p><img src="https://raw.github.com/faceleg/ACEView/master/Collateral/ace-xib-binding.jpg" alt="ACEView XIB Binding"></p>
+
+<p>Now, you could do something like this:</p>
+<pre class="highlight plaintext"><code>import Cocoa
+import ACEViewSwift
+
+class ViewController: NSViewController {
+
+  @IBOutlet weak var aceView: ACEView!
+
+  override func viewDidLoad() {
+      super.viewDidLoad()
+
+      // Some text content
+      let html = "..."
+
+      // onReady() is a convenience closure for configuring
+      // the ACEView right after it has been finished loading
+
+      aceView.onReady = { [unowned self] in
+          self.aceView.string = html
+          self.aceView.mode = .HTML
+          self.aceView.theme = .Xcode
+          self.aceView.keyboardHandler = .Ace
+          self.aceView.showPrintMargin = true
+          self.aceView.showInvisibles = false
+          self.aceView.basicAutoCompletion = true
+          self.aceView.liveAutocompletion = true
+          self.aceView.snippets = true
+          self.aceView.emmet = true
+          self.aceView.focus()
+      }
+  }
+
+}
+
+</code></pre>
+<a href='#contributions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='contributions'>Contributions</h1>
+
+<p>All are welcome, all are read.</p>
+
+<p>Many thanks to <a href="https://github.com/faceleg">Michael Robinson</a> and all the people that developed the <a href="https://github.com/ACENative/ACEView">original ObjC framework</a> !</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-12-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

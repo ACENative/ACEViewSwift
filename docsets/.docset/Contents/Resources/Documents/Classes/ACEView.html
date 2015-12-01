@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ACEView Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/ACEView" class="dashAnchor"></a>
+    <a title="ACEView Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (32% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ACEView Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C12ACEViewSwift13ACESearchItem">ACESearchItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ACEView.html">ACEView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v12ACEViewSwift32ACETextDidEndEditingNotificationSS">ACETextDidEndEditingNotification</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ACEKeyboardHandler.html">ACEKeyboardHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ACEMode.html">ACEMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ACETheme.html">ACETheme</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ACEViewDelegate.html">ACEViewDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ACEView</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                </div>
+              </div>
+            <p>This class provides the main public interface for the ACEView.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView8delegateGSqPS_15ACEViewDelegate__"></a>
+                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView8delegateGSqPS_15ACEViewDelegate__">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ACEView delegate.</p>
+
+<div class="aside aside-see-also">
+          <p class="aside-title">See also</p>
+          ACEViewDelegate
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt">ACEViewDelegate</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView18firstSelectedRangeVSC8_NSRange"></a>
+                    <a name="//apple_ref/swift/Property/firstSelectedRange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView18firstSelectedRangeVSC8_NSRange">firstSelectedRange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/ACEView%20interaction"></a>
+                <a name="//apple_ref/swift/Section/ACEView interaction" class="dashAnchor"></a>
+                <a href="#/ACEView%20interaction">
+                  <h3 class="section-name">ACEView interaction</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView5focusFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/focus()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView5focusFS0_FT_T_">focus()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the cursor to the editor view.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">focus</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView6stringSS"></a>
+                    <a name="//apple_ref/swift/Property/string" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView6stringSS">string</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieve and Set the content of the underlying ACE Editor.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.getValue">editor.getValue()</a> &amp; <a href="http://ace.ajax.org/#Editor.setValue">editor.setValue()</a>.</p>
+
+<div class="aside aside-returns">
+          <p class="aside-title">Returns</p>
+          The ACE Editor content.
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">string</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The ACE Editor content.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView4modeOS_7ACEMode"></a>
+                    <a name="//apple_ref/swift/Property/mode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView4modeOS_7ACEMode">mode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the syntax highlighting mode.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#EditSession.setMode">editor.getSession().setMode()</a>.</p>
+
+<div class="aside aside-see-also">
+          <p class="aside-title">See also</p>
+          ACEMode
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">mode</span><span class="p">:</span> <span class="kt">ACEMode</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView5themeOS_8ACETheme"></a>
+                    <a name="//apple_ref/swift/Property/theme" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView5themeOS_8ACETheme">theme</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the theme.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setTheme">editor.setTheme()</a>.</p>
+
+<div class="aside aside-see-also">
+          <p class="aside-title">See also</p>
+          ACETheme
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">theme</span><span class="p">:</span> <span class="kt">ACETheme</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView25wrappingBehavioursEnabledSb"></a>
+                    <a name="//apple_ref/swift/Property/wrappingBehavioursEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView25wrappingBehavioursEnabledSb">wrappingBehavioursEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Turn wrapping behaviour on or off.</p>
+
+<p>Specifies whether to use wrapping behaviors or not, i.e. automatically wrapping the selection with characters such as brackets when such a character is typed in.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setWrapBehavioursEnabled">editor.setWrapBehavioursEnabled()</a>.</p>
+
+<div class="aside aside-see-also">
+          <p class="aside-title">See also</p>
+          useSoftWrap
+
+        </div><div class="aside aside-see-also">
+          <p class="aside-title">See also</p>
+          wrapLimitRange
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">wrappingBehavioursEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView11useSoftWrapSb"></a>
+                    <a name="//apple_ref/swift/Property/useSoftWrap" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView11useSoftWrapSb">useSoftWrap</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets whether or not line wrapping is enabled.</p>
+
+<p>Define the wrap limit with wrapLimitRange.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#EditSession.setUseWrapMode">editor.getSession().setUseWrapMode()</a>.</p>
+
+<div class="aside aside-see-also">
+          <p class="aside-title">See also</p>
+          wrappingBehavioursEnabled
+
+        </div><div class="aside aside-see-also">
+          <p class="aside-title">See also</p>
+          wrapLimitRange
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">useSoftWrap</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView14wrapLimitRangeVSC8_NSRange"></a>
+                    <a name="//apple_ref/swift/Property/wrapLimitRange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView14wrapLimitRangeVSC8_NSRange">wrapLimitRange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the boundaries of wrap.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#EditSession.setWrapLimitRange">editor.getSession().setWrapLimitRange()</a>.</p>
+
+<div class="aside aside-see-also">
+          <p class="aside-title">See also</p>
+          wrappingBehavioursEnabled
+
+        </div><div class="aside aside-see-also">
+          <p class="aside-title">See also</p>
+          useSoftWrap
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">wrapLimitRange</span><span class="p">:</span> <span class="kt">NSRange</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView14showInvisiblesSb"></a>
+                    <a name="//apple_ref/swift/Property/showInvisibles" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView14showInvisiblesSb">showInvisibles</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Show or hide invisible characters.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setShowInvisibles">editor.setShowInvisibles()</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">showInvisibles</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView8readOnlySb"></a>
+                    <a name="//apple_ref/swift/Property/readOnly" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView8readOnlySb">readOnly</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set read only mode. Prevents content from being changed interactively.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setReadOnly">editor.setReadOnly()</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">readOnly</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView15showFoldWidgetsSb"></a>
+                    <a name="//apple_ref/swift/Property/showFoldWidgets" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView15showFoldWidgetsSb">showFoldWidgets</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Show or hide folding widgets.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setShowFoldWidgets">editor.setShowFoldWidgets()</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">showFoldWidgets</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView15fadeFoldWidgetsSb"></a>
+                    <a name="//apple_ref/swift/Property/fadeFoldWidgets" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView15fadeFoldWidgetsSb">fadeFoldWidgets</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enable fading of folding widgets.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setFadeFoldWidgets">editor.setFadeFoldWidgets()</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">fadeFoldWidgets</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView19highlightActiveLineSb"></a>
+                    <a name="//apple_ref/swift/Property/highlightActiveLine" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView19highlightActiveLineSb">highlightActiveLine</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Highlight the active line.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setHighlightActiveLine">editor.setHighlightActiveLine()</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">highlightActiveLine</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView19highlightGutterLineSb"></a>
+                    <a name="//apple_ref/swift/Property/highlightGutterLine" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView19highlightGutterLineSb">highlightGutterLine</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Highlight the gutter line.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setHighlightGutterLine">editor.setHighlightGutterLine()</a>.</p>
+
+<div class="aside aside-warning">
+          <p class="aside-title">Warning</p>
+          The ACE Editor documentation for this behaviour is incomplete.
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">highlightGutterLine</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView21highlightSelectedWordSb"></a>
+                    <a name="//apple_ref/swift/Property/highlightSelectedWord" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView21highlightSelectedWordSb">highlightSelectedWord</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Highlight the selected word.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setHighlightSelectedWord">editor.setHighlightSelectedWord()</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">highlightSelectedWord</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView19displayIndentGuidesSb"></a>
+                    <a name="//apple_ref/swift/Property/displayIndentGuides" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView19displayIndentGuidesSb">displayIndentGuides</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Display indent guides.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setDisplayIndentGuides">editor.setDisplayIndentGuides()</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">displayIndentGuides</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView14animatedScrollSb"></a>
+                    <a name="//apple_ref/swift/Property/animatedScroll" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView14animatedScrollSb">animatedScroll</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enable animated scrolling.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setAnimatedScroll">editor.setAnimatedScroll()</a>.</p>
+
+<div class="aside aside-warning">
+          <p class="aside-title">Warning</p>
+          The ACE Editor documentation for this behaviour is incomplete.
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">animatedScroll</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView11scrollSpeedSi"></a>
+                    <a name="//apple_ref/swift/Property/scrollSpeed" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView11scrollSpeedSi">scrollSpeed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Change the mouse scroll speed.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setScrollSpeed">editor.setScrollSpeed()</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">scrollSpeed</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView15keyboardHandlerOS_18ACEKeyboardHandler"></a>
+                    <a name="//apple_ref/swift/Property/keyboardHandler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView15keyboardHandlerOS_18ACEKeyboardHandler">keyboardHandler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the keyboard handler.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setKeyboardHandler">editor.setKeyboardHandler()</a>.</p>
+
+<div class="aside aside-see-also">
+          <p class="aside-title">See also</p>
+          ACETheme
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">keyboardHandler</span><span class="p">:</span> <span class="kt">ACEKeyboardHandler</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView19basicAutoCompletionSb"></a>
+                    <a name="//apple_ref/swift/Property/basicAutoCompletion" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView19basicAutoCompletionSb">basicAutoCompletion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enable basic autocomplete.</p>
+
+<p>Uses [editor.setOptions({ enableBasicAutocompletion: BOOL })]</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">basicAutoCompletion</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView18liveAutocompletionSb"></a>
+                    <a name="//apple_ref/swift/Property/liveAutocompletion" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView18liveAutocompletionSb">liveAutocompletion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enable live autocompletion.</p>
+
+<p>Uses [editor.setOptions({ enableLiveAutocompletion: BOOL })]</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">liveAutocompletion</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView8snippetsSb"></a>
+                    <a name="//apple_ref/swift/Property/snippets" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView8snippetsSb">snippets</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enable snippets.</p>
+
+<p>Uses [editor.setOptions({ enableSnippets: BOOL })]</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">snippets</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView5emmetSb"></a>
+                    <a name="//apple_ref/swift/Property/emmet" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView5emmetSb">emmet</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enable emmet.</p>
+
+<p>Uses [editor.setOptions({ emmet: BOOL })]</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">emmet</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView17printMarginColumnSi"></a>
+                    <a name="//apple_ref/swift/Property/printMarginColumn" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView17printMarginColumnSi">printMarginColumn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the column defining where the print margin should be.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setPrintMarginColumn">editor.setPrintMarginColumn()</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">printMarginColumn</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView15showPrintMarginSb"></a>
+                    <a name="//apple_ref/swift/Property/showPrintMargin" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView15showPrintMarginSb">showPrintMargin</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Shows the print margin</p>
+
+<p>Uses <a href="http://ace.ajax.org/#api=editor&amp;nav=setShowPrintMargin">editor.setShowPrintMargin()</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">showPrintMargin</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView8fontSizeSi"></a>
+                    <a name="//apple_ref/swift/Property/fontSize" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView8fontSizeSi">fontSize</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the font size.</p>
+
+<p>Uses <a href="http://ace.ajax.org/#Editor.setFontSize">editor.setFontSize()</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">fontSize</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView10fontFamilySS"></a>
+                    <a name="//apple_ref/swift/Property/fontFamily" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView10fontFamilySS">fontFamily</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the font family.</p>
+
+<p>Uses [editor.setOptions({ fontFamily: NSString })]</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">fontFamily</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView8goToLineFS0_FTSi6columnSi8animatedSb_T_"></a>
+                    <a name="//apple_ref/swift/Method/goToLine(_:column:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView8goToLineFS0_FTSi6columnSi8animatedSb_T_">goToLine(_:column:animated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Moves the cursor to the specified line number, and also into the indiciated column.</p>
+
+<p>Uses [editor.goToLine()].</p>
+
+<ul>
+<li>Parameters:</li>
+<li>line: The line number to go to</li>
+<li>column: The column number to go to</li>
+<li>animated: If <code>true</code> animates scolling</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">goToLine</span><span class="p">(</span><span class="nv">line</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">column</span><span class="p">:</span><span class="kt">Int</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView15showLineNumbersSb"></a>
+                    <a name="//apple_ref/swift/Property/showLineNumbers" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView15showLineNumbersSb">showLineNumbers</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enable line numbers.</p>
+
+<p>Uses [editor.setOption(&lsquo;showLineNumbers&rsquo;, BOOL )]</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">showLineNumbers</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView10showGutterSb"></a>
+                    <a name="//apple_ref/swift/Property/showGutter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView10showGutterSb">showGutter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enable gutter.</p>
+
+<p>Uses [editor.setOption(&lsquo;showGutter&rsquo;, BOOL )]</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">showGutter</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView6lengthSi"></a>
+                    <a name="//apple_ref/swift/Property/length" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView6lengthSi">length</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the number of rows in the document.</p>
+
+<p>Uses [editor.getSession().getLength()]</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">length</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView7getLineFS0_FSiSS"></a>
+                    <a name="//apple_ref/swift/Method/getLine(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView7getLineFS0_FSiSS">getLine(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a verbatim copy of the given line as it is in the document.</p>
+
+<p>Uses [editor.getSession().getLine(Number row)]</p>
+
+<div class="aside aside-parameter">
+          <p class="aside-title">Parameter</p>
+          line The line to get
+
+        </div><div class="aside aside-returns">
+          <p class="aside-title">Returns</p>
+          The requested line
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getLine</span><span class="p">(</span><span class="nv">line</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The requested line</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView11newLineModeSS"></a>
+                    <a name="//apple_ref/swift/Property/newLineMode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView11newLineModeSS">newLineMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current new line mode.</p>
+
+<p>Uses <a href="http://ace.c9.io/api/edit_session.html#EditSession.getNewLineMode">EditSession.getNewLineMode()</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">newLineMode</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView11useSoftTabsSb"></a>
+                    <a name="//apple_ref/swift/Property/useSoftTabs" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView11useSoftTabsSb">useSoftTabs</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Pass true to enable the use of soft tabs.</p>
+
+<p>Soft tabs means you&rsquo;re using spaces instead of the tab character (&rsquo;\t&rsquo;).</p>
+
+<p>Uses <a href="http://ace.c9.io/api/edit_session.html#EditSession.setUseSoftTabs">EditSession.setUseSoftTabs(Boolean useSoftTabs)</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">useSoftTabs</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView7tabSizeSi"></a>
+                    <a name="//apple_ref/swift/Property/tabSize" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView7tabSizeSi">tabSize</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the number of spaces that define a soft tab.</p>
+
+<p>For example, passing in 4 transforms the soft tabs to be equivalent to four spaces. This function also emits the changeTabSize event.</p>
+
+<p>Uses <a href="http://ace.c9.io/api/edit_session.html#EditSession.setTabSize">EditSession.setTabSize(Number tabSize)</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">tabSize</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView7findAllFS0_FCSo12NSDictionaryGSqGSaCS_13ACESearchItem__"></a>
+                    <a name="//apple_ref/swift/Method/findAll(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView7findAllFS0_FCSo12NSDictionaryGSqGSaCS_13ACESearchItem__">findAll(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Searches for all occurances options.needle.</p>
+
+<p>If found, this method returns an array of Ranges where the text first occurs. 
+If options.backwards is true, the search goes backwards in the session.</p>
+
+<p>Uses <a href="http://ace.c9.io/api/search.html">Search.findAll(EditSession session)</a>.</p>
+
+<div class="aside aside-parameter">
+          <p class="aside-title">Parameter</p>
+          options A dictionary of search options.
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">findAll</span><span class="p">(</span><span class="nv">options</span><span class="p">:</span> <span class="kt">NSDictionary</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">ACESearchItem</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView10replaceAllFS0_FTSS7optionsCSo12NSDictionary_T_"></a>
+                    <a name="//apple_ref/swift/Method/replaceAll(_:options:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView10replaceAllFS0_FTSS7optionsCSo12NSDictionary_T_">replaceAll(_:options:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Replaces all occurances of options.needle with the value in replacement.</p>
+
+<p>Uses <a href="http://ace.c9.io/api/editor.html#Editor.replaceAll">Editor.replaceAll(String replacement, Object options)</a>.</p>
+
+<div class="aside aside-parameter">
+          <p class="aside-title">Parameter</p>
+          Parameter replacement: The replacement value
+
+        </div><div class="aside aside-parameter">
+          <p class="aside-title">Parameter</p>
+          Parameter options: A dictionary of search options
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">replaceAll</span><span class="p">(</span><span class="nv">replacement</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="kt">NSDictionary</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/NSView%20overrides"></a>
+                <a name="//apple_ref/swift/Section/NSView overrides" class="dashAnchor"></a>
+                <a href="#/NSView%20overrides">
+                  <h3 class="section-name">NSView overrides</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView8drawRectFS0_FVSC6CGRectT_"></a>
+                    <a name="//apple_ref/swift/Method/drawRect(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView8drawRectFS0_FVSC6CGRectT_">drawRect(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView25resizeSubviewsWithOldSizeFS0_FVSC6CGSizeT_"></a>
+                    <a name="//apple_ref/swift/Method/resizeSubviewsWithOldSize(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView25resizeSubviewsWithOldSizeFS0_FVSC6CGSizeT_">resizeSubviewsWithOldSize(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/WebView%20delegate%20methods"></a>
+                <a name="//apple_ref/swift/Section/WebView delegate methods" class="dashAnchor"></a>
+                <a href="#/WebView%20delegate%20methods">
+                  <h3 class="section-name">WebView delegate methods</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView7onReadyGSqFT_T__"></a>
+                    <a name="//apple_ref/swift/Property/onReady" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView7onReadyGSqFT_T__">onReady</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView7webViewFS0_FTGSQCSo7WebView_21didFinishLoadForFrameGSQCSo8WebFrame__T_"></a>
+                    <a name="//apple_ref/swift/Method/webView(_:didFinishLoadForFrame:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView7webViewFS0_FTGSQCSo7WebView_21didFinishLoadForFrameGSQCSo8WebFrame__T_">webView(_:didFinishLoadForFrame:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView19webViewHeaderHeightFS0_FGSQCSo7WebView_Sf"></a>
+                    <a name="//apple_ref/swift/Method/webViewHeaderHeight(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView19webViewHeaderHeightFS0_FGSQCSo7WebView_Sf">webViewHeaderHeight(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView19webViewFooterHeightFS0_FGSQCSo7WebView_Sf"></a>
+                    <a name="//apple_ref/swift/Method/webViewFooterHeight(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView19webViewFooterHeightFS0_FGSQCSo7WebView_Sf">webViewFooterHeight(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView7webViewFS0_FTGSQCSo7WebView_16drawHeaderInRectVSC6CGRect_T_"></a>
+                    <a name="//apple_ref/swift/Method/webView(_:drawHeaderInRect:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView7webViewFS0_FTGSQCSo7WebView_16drawHeaderInRectVSC6CGRect_T_">webView(_:drawHeaderInRect:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView7webViewFS0_FTGSQCSo7WebView_16drawFooterInRectVSC6CGRect_T_"></a>
+                    <a name="//apple_ref/swift/Method/webView(_:drawFooterInRect:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView7webViewFS0_FTGSQCSo7WebView_16drawFooterInRectVSC6CGRect_T_">webView(_:drawFooterInRect:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView8editableSb"></a>
+                    <a name="//apple_ref/swift/Property/editable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView8editableSb">editable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Private%20Scope"></a>
+                <a name="//apple_ref/swift/Section/Private Scope" class="dashAnchor"></a>
+                <a href="#/Private%20Scope">
+                  <h3 class="section-name">Private Scope</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEViewcFMS0_FT5coderCSo7NSCoder_GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEViewcFMS0_FT5coderCSo7NSCoder_GSqS0__">init(coder:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView12awakeFromNibFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/awakeFromNib()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView12awakeFromNibFS0_FT_T_">awakeFromNib()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12ACEViewSwift7ACEView10borderTypeOSC12NSBorderType"></a>
+                    <a name="//apple_ref/swift/Property/borderType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12ACEViewSwift7ACEView10borderTypeOSC12NSBorderType">borderType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView16aceTextDidChangeFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/aceTextDidChange()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView16aceTextDidChangeFS0_FT_T_">aceTextDidChange()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView23performTextFinderActionFS0_FGSqPSs9AnyObject__T_"></a>
+                    <a name="//apple_ref/swift/Method/performTextFinderAction(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView23performTextFinderActionFS0_FGSqPSs9AnyObject__T_">performTextFinderAction(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView20scrollRangeToVisibleFS0_FVSC8_NSRangeT_"></a>
+                    <a name="//apple_ref/swift/Method/scrollRangeToVisible(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView20scrollRangeToVisibleFS0_FVSC8_NSRangeT_">scrollRangeToVisible(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12ACEViewSwift7ACEView24replaceCharactersInRangeFS0_FTVSC8_NSRange10withStringSS_T_"></a>
+                    <a name="//apple_ref/swift/Method/replaceCharactersInRange(_:withString:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12ACEViewSwift7ACEView24replaceCharactersInRangeFS0_FTVSC8_NSRange10withStringSS_T_">replaceCharactersInRange(_:withString:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">ACEView</span><span class="p">:</span> <span class="kt">NSScrollView</span><span class="p">,</span> <span class="kt">NSTextFinderClient</span><span class="p">,</span> <span class="kt">WebFrameLoadDelegate</span><span class="p">,</span> <span class="kt">WebUIDelegate</span><span class="p">,</span> <span class="kt">ACEViewJSExports</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-12-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ACEViewDelegate Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/ACEViewDelegate" class="dashAnchor"></a>
+    <a title="ACEViewDelegate Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (32% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ACEViewDelegate Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C12ACEViewSwift13ACESearchItem">ACESearchItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ACEView.html">ACEView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v12ACEViewSwift32ACETextDidEndEditingNotificationSS">ACETextDidEndEditingNotification</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ACEKeyboardHandler.html">ACEKeyboardHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ACEMode.html">ACEMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ACETheme.html">ACETheme</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ACEViewDelegate.html">ACEViewDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ACEViewDelegate</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ACEViewDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>The ACEViewDelegate protocol is implemented by objects that wish to monitor the ACEView for content changes.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP12ACEViewSwift15ACEViewDelegate13textDidChangeuRq_S0__Fq_FCSo14NSNotificationT_"></a>
+                    <a name="//apple_ref/swift/Method/textDidChange(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP12ACEViewSwift15ACEViewDelegate13textDidChangeuRq_S0__Fq_FCSo14NSNotificationT_">textDidChange(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Posts a notification that the text has changed and forwards this message to the delegate if it responds.</p>
+
+<div class="aside aside-parameter">
+          <p class="aside-title">Parameter</p>
+          Parameter notification: The ACETextDidEndEditingNotification notification that is posted to the default notification center.
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">textDidChange</span><span class="p">(</span><span class="nv">notification</span><span class="p">:</span> <span class="kt">NSNotification</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>notification</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ACETextDidEndEditingNotification notification that is posted to the default notification center.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP12ACEViewSwift15ACEViewDelegate16printInformationuRq_S0__Fq_FT_CSo11NSPrintInfo"></a>
+                    <a name="//apple_ref/swift/Method/printInformation()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP12ACEViewSwift15ACEViewDelegate16printInformationuRq_S0__Fq_FT_CSo11NSPrintInfo">printInformation()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provides the print settings to be used for a print job. Defaults to application shared settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">printInformation</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">NSPrintInfo</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP12ACEViewSwift15ACEViewDelegate13printFontSizeuRq_S0__Fq_FT_Si"></a>
+                    <a name="//apple_ref/swift/Method/printFontSize()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP12ACEViewSwift15ACEViewDelegate13printFontSizeuRq_S0__Fq_FT_Si">printFontSize()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provides the desired font size for printing. Defaults to 10px</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">printFontSize</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP12ACEViewSwift15ACEViewDelegate17printHeaderHeightuRq_S0__Fq_FT_Sf"></a>
+                    <a name="//apple_ref/swift/Method/printHeaderHeight()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP12ACEViewSwift15ACEViewDelegate17printHeaderHeightuRq_S0__Fq_FT_Sf">printHeaderHeight()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provides the desired height for page headers and footers. Defaults to 0.0px</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">printHeaderHeight</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Float</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP12ACEViewSwift15ACEViewDelegate17printFooterHeightuRq_S0__Fq_FT_Sf"></a>
+                    <a name="//apple_ref/swift/Method/printFooterHeight()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP12ACEViewSwift15ACEViewDelegate17printFooterHeightuRq_S0__Fq_FT_Sf">printFooterHeight()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ACEViewDelegate</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP12ACEViewSwift15ACEViewDelegate22drawPrintHeaderForPageuRq_S0__Fq_FTSi6inRectVSC6CGRect_T_"></a>
+                    <a name="//apple_ref/swift/Method/drawPrintHeaderForPage(_:inRect:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP12ACEViewSwift15ACEViewDelegate22drawPrintHeaderForPageuRq_S0__Fq_FTSi6inRectVSC6CGRect_T_">drawPrintHeaderForPage(_:inRect:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Draws the headers and footers. Defaults to no headers and footers</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">drawPrintHeaderForPage</span><span class="p">(</span><span class="nv">page</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inRect</span><span class="p">:</span> <span class="kt">NSRect</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP12ACEViewSwift15ACEViewDelegate22drawPrintFooterForPageuRq_S0__Fq_FTSi6inRectVSC6CGRect_T_"></a>
+                    <a name="//apple_ref/swift/Method/drawPrintFooterForPage(_:inRect:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP12ACEViewSwift15ACEViewDelegate22drawPrintFooterForPageuRq_S0__Fq_FTSi6inRectVSC6CGRect_T_">drawPrintFooterForPage(_:inRect:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ACEViewDelegate</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP12ACEViewSwift15ACEViewDelegate19startPrintOperationuRq_S0__Fq_FCSo16NSPrintOperationT_"></a>
+                    <a name="//apple_ref/swift/Method/startPrintOperation(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP12ACEViewSwift15ACEViewDelegate19startPrintOperationuRq_S0__Fq_FCSo16NSPrintOperationT_">startPrintOperation(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called before starting and ending a print job</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">startPrintOperation</span><span class="p">(</span><span class="nv">printOperation</span><span class="p">:</span> <span class="kt">NSPrintOperation</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP12ACEViewSwift15ACEViewDelegate17endPrintOperationuRq_S0__Fq_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/endPrintOperation()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP12ACEViewSwift15ACEViewDelegate17endPrintOperationuRq_S0__Fq_FT_T_">endPrintOperation()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ACEViewDelegate</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP12ACEViewSwift15ACEViewDelegate14aceViewDidLoaduRq_S0__Fq_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/aceViewDidLoad()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP12ACEViewSwift15ACEViewDelegate14aceViewDidLoaduRq_S0__Fq_FT_T_">aceViewDidLoad()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called after the ACEView has been loaded</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">aceViewDidLoad</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-12-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
