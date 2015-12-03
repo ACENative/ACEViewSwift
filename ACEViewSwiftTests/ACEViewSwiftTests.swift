@@ -126,4 +126,20 @@ class ACEViewSwiftTests: XCTestCase {
         wait()
     }
     
+    func testWrapLimitRange() {
+        let readyExpectation = expectationWithDescription("onReady")
+        
+        aceView.onReady = {
+            readyExpectation.fulfill()
+            XCTAssertTrue(NSEqualRanges(self.aceView.wrapLimitRange, NSRange()), "Wrap limit range should be zero by default")
+            XCTAssertEqual(self.aceView.useSoftWrap, false, "Soft wrapping should be turned off by default")
+            let newRange = NSRange(location: 2, length: 4)
+            self.aceView.wrapLimitRange = newRange
+            XCTAssertTrue(NSEqualRanges(self.aceView.wrapLimitRange, newRange), "Wrap limit range should be now changed to new value")
+            XCTAssertEqual(self.aceView.useSoftWrap, true, "Soft wrapping should be now changed to true")
+        }
+        
+        wait()
+    }
+    
 }

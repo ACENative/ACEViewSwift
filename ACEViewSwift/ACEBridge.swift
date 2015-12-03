@@ -67,12 +67,15 @@ class ACESession: ACEBridgedObject {
     /*--------------------------------------------------------------------------------*/
     
     func getWrapLimitRange() -> NSRange {
-        return jsCall().toRange()
+        let range = jsCall().toDictionary()
+        let min = (range["min"] as? Int) ?? 0
+        let max = (range["max"] as? Int) ?? 0
+        return NSRange(location: min, length: max)
     }
     
     func setWrapLimitRange(range: NSRange) {
         setUseWrapMode(true)
-        jsCall(arguments: [range])
+        jsCall(arguments: [range.location, range.length])
     }
     
     /*--------------------------------------------------------------------------------*/
