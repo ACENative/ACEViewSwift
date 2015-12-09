@@ -9,6 +9,22 @@
 import XCTest
 @testable import ACEViewSwift
 
+//MARK: Helpers
+extension XCTestCase {
+    
+    func assertBooleanProperty(inout property: Bool, name: String, defaultValue: Bool) {
+        
+        func flagMsg(flag: Bool) -> String { return flag ? "turned on" : "turned off" }
+
+        XCTAssertEqual(property, defaultValue, "\(name) should be \(flagMsg(defaultValue)) by default")
+        property = !defaultValue
+        XCTAssertEqual(property, !defaultValue, "\(name) should be \(flagMsg(!defaultValue)) now")
+    }
+    
+}
+
+/*--------------------------------------------------------------------------------*/
+//MARK: - Testing
 class ACEViewSwiftTests: XCTestCase {
     
     class ACEDelegate: ACEViewDelegate {
@@ -105,9 +121,7 @@ class ACEViewSwiftTests: XCTestCase {
         
         aceView.onReady = {
             readyExpectation.fulfill()
-            XCTAssertEqual(self.aceView.wrappingBehavioursEnabled, true, "Wrapping behaviours should be turned on by default")
-            self.aceView.wrappingBehavioursEnabled = false
-            XCTAssertEqual(self.aceView.wrappingBehavioursEnabled, false, "Wrapping beahviours should be now changed to false")
+            self.assertBooleanProperty(&self.aceView.wrappingBehavioursEnabled, name: "Wrapping behaviours", defaultValue: true)
         }
         
         wait()
@@ -118,9 +132,7 @@ class ACEViewSwiftTests: XCTestCase {
         
         aceView.onReady = {
             readyExpectation.fulfill()
-            XCTAssertEqual(self.aceView.useSoftWrap, false, "Soft wrapping should be turned off by default")
-            self.aceView.useSoftWrap = true
-            XCTAssertEqual(self.aceView.useSoftWrap, true, "Soft wrapping should be now changed to true")
+            self.assertBooleanProperty(&self.aceView.useSoftWrap, name: "Soft wrapping", defaultValue: false)
         }
         
         wait()
@@ -137,6 +149,17 @@ class ACEViewSwiftTests: XCTestCase {
             self.aceView.wrapLimitRange = newRange
             XCTAssertTrue(NSEqualRanges(self.aceView.wrapLimitRange, newRange), "Wrap limit range should be now changed to new value")
             XCTAssertEqual(self.aceView.useSoftWrap, true, "Soft wrapping should be now changed to true")
+        }
+        
+        wait()
+    }
+    
+    func testShowInvisibles() {
+        let readyExpectation = expectationWithDescription("onReady")
+        
+        aceView.onReady = {
+            readyExpectation.fulfill()
+            self.assertBooleanProperty(&self.aceView.showInvisibles, name: "Invisible characters", defaultValue: false)
         }
         
         wait()
