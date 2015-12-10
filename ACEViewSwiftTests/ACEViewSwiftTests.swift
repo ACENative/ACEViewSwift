@@ -52,117 +52,64 @@ class ACEViewSwiftTests: XCTestCase {
         
         delegate = ACEDelegate()
         aceView.delegate = delegate
+        
+        let readyExpectation = expectationWithDescription("onReady")
+        
+        aceView.onReady = {
+            readyExpectation.fulfill()
+            print("Ready...")
+        }
+        
+        wait()
+
     }
     
     override func tearDown() {
         super.tearDown()
     }
     
-    func testACEViewInitialization() {
-        
-        let readyExpectation = expectationWithDescription("onReady")
-        
-        delegate.didLoadExpectation = expectationWithDescription("onDidLoad")
-        
-        // onReady should be called eventually
-        aceView.onReady = {
-            readyExpectation.fulfill()
-        }
-        
-        wait()
-    }
-    
     func testStringAccessor() {
-        let readyExpectation = expectationWithDescription("onReady")
-        
-        aceView.onReady = {
-            readyExpectation.fulfill()
-            XCTAssertTrue(self.aceView.string.isEmpty, "String should be empty on initialization")
-            let newValue = "Something"
-            self.aceView.string = newValue
-            XCTAssertEqual(self.aceView.string, newValue, "String should be 'Something' at this point")
-        }
-        
-        wait()
+        XCTAssertTrue(self.aceView.string.isEmpty, "String should be empty on initialization")
+        let newValue = "Something"
+        self.aceView.string = newValue
+        XCTAssertEqual(self.aceView.string, newValue, "String should be 'Something' at this point")
     }
     
     func testMode() {
-        let readyExpectation = expectationWithDescription("onReady")
-        
-        aceView.onReady = {
-            readyExpectation.fulfill()
-            XCTAssertEqual(self.aceView.mode.name, "text", "Mode should be 'text' by default")
-            let newMode = ACEMode.HTML
-            self.aceView.mode = newMode
-            XCTAssertEqual(self.aceView.mode, newMode)
-            XCTAssertEqual(self.aceView.mode.name, "html", "Mode should be now changed to 'html'")
-        }
-        
-        wait()
+        XCTAssertEqual(self.aceView.mode.name, "text", "Mode should be 'text' by default")
+        let newMode = ACEMode.HTML
+        self.aceView.mode = newMode
+        XCTAssertEqual(self.aceView.mode, newMode)
+        XCTAssertEqual(self.aceView.mode.name, "html", "Mode should be now changed to 'html'")
     }
     
     func testTheme() {
-        let readyExpectation = expectationWithDescription("onReady")
-        
-        aceView.onReady = {
-            readyExpectation.fulfill()
-            XCTAssertEqual(self.aceView.theme.name, "None", "Theme should be 'None' by default")
-            let newTheme = ACETheme.Monokai
-            self.aceView.theme = newTheme
-            XCTAssertEqual(self.aceView.theme, ACETheme.Monokai)
-            XCTAssertEqual(self.aceView.theme.name, "monokai", "Mode should be now changed to 'Monokai'")
-        }
-        
-        wait()
+        XCTAssertEqual(self.aceView.theme.name, "None", "Theme should be 'None' by default")
+        let newTheme = ACETheme.Monokai
+        self.aceView.theme = newTheme
+        XCTAssertEqual(self.aceView.theme, ACETheme.Monokai)
+        XCTAssertEqual(self.aceView.theme.name, "monokai", "Mode should be now changed to 'Monokai'")
     }
     
     func testWrapBehavioursEnabled() {
-        let readyExpectation = expectationWithDescription("onReady")
-        
-        aceView.onReady = {
-            readyExpectation.fulfill()
-            self.assertBooleanProperty(&self.aceView.wrappingBehavioursEnabled, name: "Wrapping behaviours", defaultValue: true)
-        }
-        
-        wait()
+        assertBooleanProperty(&self.aceView.wrappingBehavioursEnabled, name: "Wrapping behaviours", defaultValue: true)
     }
     
     func testSoftWrap() {
-        let readyExpectation = expectationWithDescription("onReady")
-        
-        aceView.onReady = {
-            readyExpectation.fulfill()
-            self.assertBooleanProperty(&self.aceView.useSoftWrap, name: "Soft wrapping", defaultValue: false)
-        }
-        
-        wait()
+        assertBooleanProperty(&self.aceView.useSoftWrap, name: "Soft wrapping", defaultValue: false)
     }
     
     func testWrapLimitRange() {
-        let readyExpectation = expectationWithDescription("onReady")
-        
-        aceView.onReady = {
-            readyExpectation.fulfill()
-            XCTAssertTrue(NSEqualRanges(self.aceView.wrapLimitRange, NSRange()), "Wrap limit range should be zero by default")
-            XCTAssertEqual(self.aceView.useSoftWrap, false, "Soft wrapping should be turned off by default")
-            let newRange = NSRange(location: 2, length: 4)
-            self.aceView.wrapLimitRange = newRange
-            XCTAssertTrue(NSEqualRanges(self.aceView.wrapLimitRange, newRange), "Wrap limit range should be now changed to new value")
-            XCTAssertEqual(self.aceView.useSoftWrap, true, "Soft wrapping should be now changed to true")
-        }
-        
-        wait()
+        XCTAssertTrue(NSEqualRanges(self.aceView.wrapLimitRange, NSRange()), "Wrap limit range should be zero by default")
+        XCTAssertEqual(self.aceView.useSoftWrap, false, "Soft wrapping should be turned off by default")
+        let newRange = NSRange(location: 2, length: 4)
+        self.aceView.wrapLimitRange = newRange
+        XCTAssertTrue(NSEqualRanges(self.aceView.wrapLimitRange, newRange), "Wrap limit range should be now changed to new value")
+        XCTAssertEqual(self.aceView.useSoftWrap, true, "Soft wrapping should be now changed to true")
     }
     
     func testShowInvisibles() {
-        let readyExpectation = expectationWithDescription("onReady")
-        
-        aceView.onReady = {
-            readyExpectation.fulfill()
-            self.assertBooleanProperty(&self.aceView.showInvisibles, name: "Invisible characters", defaultValue: false)
-        }
-        
-        wait()
+        assertBooleanProperty(&self.aceView.showInvisibles, name: "Invisible characters", defaultValue: false)
     }
     
 }
