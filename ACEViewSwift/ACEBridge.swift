@@ -280,12 +280,19 @@ class ACEEditor: ACEBridgedObject {
     /*--------------------------------------------------------------------------------*/
     
     func getKeyboardHandler() -> ACEKeyboardHandler {
-        let command = jsCall().toString()
-        return ACEKeyboardHandler(command: command)
+        let handler = jsCall().toDictionary()
+        if let id = handler["$id"] as? String {
+            switch id {
+                case "ace/keyboard/vim": return .Vim
+                case "ace/keyboard/emacs": return .Emacs
+                default: break
+            }
+        }
+        return .Ace
     }
     
     func setKeyboardHandler(handler: ACEKeyboardHandler) {
-        jsCall(arguments: [handler.command])
+        jsValue.context.evaluateScript("editor.setKeyboardHandler(\(handler.command))")
     }
     
     /*--------------------------------------------------------------------------------*/

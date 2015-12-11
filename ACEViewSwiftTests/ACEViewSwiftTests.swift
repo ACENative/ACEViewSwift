@@ -21,6 +21,12 @@ extension XCTestCase {
         XCTAssertEqual(property, !defaultValue, "\(name) should be \(flagMsg(!defaultValue)) now")
     }
     
+    func assertIntProperty(inout property: Int, name: String, defaultValue: Int, testValue: Int) {
+        XCTAssertEqual(property, defaultValue, "\(name) should be \(defaultValue) by default")
+        property = testValue
+        XCTAssertEqual(property, testValue, "\(name) should be \(testValue) now")
+    }
+    
 }
 
 /*--------------------------------------------------------------------------------*/
@@ -110,6 +116,68 @@ class ACEViewSwiftTests: XCTestCase {
     
     func testShowInvisibles() {
         assertBooleanProperty(&self.aceView.showInvisibles, name: "Invisible characters", defaultValue: false)
+    }
+    
+    func testReadOnly() {
+        assertBooleanProperty(&self.aceView.readOnly, name: "Read only mode", defaultValue: false)
+    }
+    
+    func testShowFoldWidgets() {
+        assertBooleanProperty(&self.aceView.showFoldWidgets, name: "Show fold widgets", defaultValue: true)
+    }
+    
+    func testFadeFoldWidgets() {
+        assertBooleanProperty(&self.aceView.fadeFoldWidgets, name: "Fade fold widgets", defaultValue: false)
+    }
+    
+    func testHighlightActiveLine() {
+        assertBooleanProperty(&self.aceView.highlightActiveLine, name: "Highlight active line", defaultValue: true)
+    }
+    
+    func testHighlightGutterLine() {
+        assertBooleanProperty(&self.aceView.highlightGutterLine, name: "Highlight gutter line", defaultValue: true)
+    }
+    
+    func testHighlightSelectedWord() {
+        assertBooleanProperty(&self.aceView.highlightSelectedWord, name: "Highlight selected word", defaultValue: true)
+    }
+    
+    func testDisplayIndentGuides() {
+        assertBooleanProperty(&self.aceView.displayIndentGuides, name: "Display indent guides", defaultValue: true)
+    }
+    
+    func testAnimatedScroll() {
+        assertBooleanProperty(&self.aceView.animatedScroll, name: "Animated scroll", defaultValue: false)
+    }
+    
+    func testScrollSpeed() {
+        assertIntProperty(&self.aceView.scrollSpeed, name: "Scroll speed", defaultValue: 2, testValue: 3)
+    }
+    
+    func testKeyboardHandler() {
+        XCTAssertEqual(self.aceView.keyboardHandler, ACEKeyboardHandler.Ace, "Keyboard handler should be Ace by default")
+        self.aceView.keyboardHandler = .Emacs
+        XCTAssertEqual(self.aceView.keyboardHandler, ACEKeyboardHandler.Emacs, "Keyboard handler should be Emacs now")
+        self.aceView.keyboardHandler = .Vim
+        XCTAssertEqual(self.aceView.keyboardHandler, ACEKeyboardHandler.Vim, "Keyboard handler should be Vim now")
+        self.aceView.keyboardHandler = .Ace
+        XCTAssertEqual(self.aceView.keyboardHandler, ACEKeyboardHandler.Ace, "Keyboard handler should be back to Ace now")
+    }
+    
+    func testBasicAutocompletion() {
+        assertBooleanProperty(&self.aceView.basicAutoCompletion, name: "Basic autocompletion", defaultValue: false)
+    }
+    
+    func testLiveAutocompletion() {
+        assertBooleanProperty(&self.aceView.liveAutocompletion, name: "Live autocompletion", defaultValue: false)
+    }
+    
+    func testSnippets() {
+        assertBooleanProperty(&self.aceView.snippets, name: "Snippets", defaultValue: false)
+    }
+    
+    func testEmmet() {
+        assertBooleanProperty(&self.aceView.emmet, name: "Emmet", defaultValue: false)
     }
     
 }
