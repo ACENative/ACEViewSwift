@@ -12,7 +12,7 @@ For great justice.
 
 ACEViewSwift's documentation is done via [Jazzy](https://github.com/realm/jazzy) and [can be found here](http://acenative.github.io/ACEViewSwift/)
 
-# Usage
+# Installation & Usage
 
 ### Cocoapods
 `pod "ACEViewSwift`
