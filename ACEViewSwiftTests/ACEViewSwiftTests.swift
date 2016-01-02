@@ -180,4 +180,61 @@ class ACEViewSwiftTests: XCTestCase {
         assertBooleanProperty(&self.aceView.emmet, name: "Emmet", defaultValue: false)
     }
     
+    func testPrintMarginColumn() {
+        assertIntProperty(&self.aceView.printMarginColumn, name: "Print margin column", defaultValue: 80, testValue: 90)
+    }
+    
+    func testShowPrintMargin() {
+        assertBooleanProperty(&self.aceView.showPrintMargin, name: "Show print margin", defaultValue: true)
+    }
+    
+    func textFontSize() {
+        assertIntProperty(&self.aceView.fontSize, name: "Font size", defaultValue: 12, testValue: 16)
+    }
+    
+    func testFontFamily() {
+        XCTAssertEqual(self.aceView.fontFamily, "None", "Font family should not be set by default")
+        self.aceView.fontFamily = "Hack"
+        XCTAssertEqual(self.aceView.fontFamily, "Hack", "Font family should be set now")
+    }
+    
+    func testShowLineNumbers() {
+        assertBooleanProperty(&self.aceView.showLineNumbers, name: "Show line numbers", defaultValue: true)
+    }
+    
+    func testShowGutter() {
+        assertBooleanProperty(&self.aceView.showGutter, name: "Show gutter", defaultValue: true)
+    }
+    
+    func testLength() {
+        XCTAssertEqual(self.aceView.length, 1, "One row by default")
+        self.aceView.string = "This \n should \n take four \n rows"
+        XCTAssertEqual(self.aceView.length, 4)
+    }
+    
+    func testGetLine() {
+        XCTAssertEqual(self.aceView.getLine(0), "", "First line should be empty by default")
+        self.aceView.string = "This \n should \n take four \n rows"
+        XCTAssertEqual(self.aceView.getLine(0), "This ")
+        XCTAssertEqual(self.aceView.getLine(3), " rows")
+    }
+    
+    func testNewLineMode() {
+        XCTAssertEqual(self.aceView.newLineMode, "auto", "New line mode should be on 'auto' by default")
+    }
+    
+    func testUseSoftTabs() {
+        assertBooleanProperty(&self.aceView.useSoftTabs, name: "Use soft tabs", defaultValue: true)
+    }
+    
+    func testTabSize() {
+        assertIntProperty(&self.aceView.tabSize, name: "Tab size", defaultValue: 4, testValue: 8)
+    }
+    
+    func testEditability() {
+        XCTAssertTrue(self.aceView.editable)
+    }
+    
+    
+    
 }

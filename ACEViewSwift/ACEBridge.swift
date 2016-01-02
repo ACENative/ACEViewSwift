@@ -387,7 +387,8 @@ class ACEEditor: ACEBridgedObject {
 
     var fontFamily: String {
         get {
-            return getOption("fontFamily").toString()
+            let family = getOption("fontFamily").toString()
+            return family == "undefined" ? "None" : family
         }
         set {
             let options = ["fontFamily":newValue]

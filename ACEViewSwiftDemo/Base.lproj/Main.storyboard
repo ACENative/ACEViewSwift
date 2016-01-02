@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
@@ -682,7 +682,6 @@
                                         <subviews>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y3c-2B-7pF">
                                                 <rect key="frame" x="6" y="12" width="120" height="17"/>
-                                                <animations/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Syntax mode:" id="4o9-Gg-7U0">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -691,7 +690,6 @@
                                             </textField>
                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="blz-lY-TIP">
                                                 <rect key="frame" x="130" y="7" width="121" height="26"/>
-                                                <animations/>
                                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="L5j-Ie-ZmO">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="menu"/>
@@ -704,7 +702,6 @@
                                             </popUpButton>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LyN-Zg-U3K">
                                                 <rect key="frame" x="254" y="12" width="120" height="17"/>
-                                                <animations/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Theme:" id="dj7-1e-erw">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -713,7 +710,6 @@
                                             </textField>
                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aNf-UB-EDF">
                                                 <rect key="frame" x="378" y="7" width="121" height="26"/>
-                                                <animations/>
                                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="Xds-aa-hFA">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="menu"/>
@@ -726,7 +722,6 @@
                                             </popUpButton>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Hp-5d-gQ3">
                                                 <rect key="frame" x="502" y="12" width="120" height="17"/>
-                                                <animations/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Keyboard:" id="2Rl-7r-zp9">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -735,7 +730,6 @@
                                             </textField>
                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qYl-vJ-HfE">
                                                 <rect key="frame" x="626" y="7" width="121" height="26"/>
-                                                <animations/>
                                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="cHW-Lh-w8S">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="menu"/>
@@ -747,7 +741,6 @@
                                                 </connections>
                                             </popUpButton>
                                         </subviews>
-                                        <animations/>
                                         <edgeInsets key="edgeInsets" left="8" right="8" top="0.0" bottom="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="PwC-9u-UGz"/>
@@ -771,10 +764,8 @@
                                     </stackView>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="339-td-IFx" customClass="ACEView" customModule="ACEViewSwift">
                                         <rect key="frame" x="0.0" y="0.0" width="752" height="375"/>
-                                        <animations/>
                                     </customView>
                                 </subviews>
-                                <animations/>
                                 <constraints>
                                     <constraint firstItem="339-td-IFx" firstAttribute="top" secondItem="y4O-a2-yoE" secondAttribute="bottom" id="5qm-fE-rgZ"/>
                                     <constraint firstAttribute="bottom" secondItem="339-td-IFx" secondAttribute="bottom" id="Dae-od-ttE"/>
@@ -800,7 +791,6 @@
                             <constraint firstItem="UcN-ks-aqn" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Me3-I9-qV8"/>
                             <constraint firstAttribute="trailing" secondItem="UcN-ks-aqn" secondAttribute="trailing" id="oCT-Jl-www"/>
                         </constraints>
-                        <animations/>
                     </view>
                     <connections>
                         <outlet property="aceView" destination="339-td-IFx" id="lGz-jf-WDf"/>
