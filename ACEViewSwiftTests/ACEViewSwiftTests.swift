@@ -188,7 +188,7 @@ class ACEViewSwiftTests: XCTestCase {
         assertBooleanProperty(&self.aceView.showPrintMargin, name: "Show print margin", defaultValue: true)
     }
     
-    func textFontSize() {
+    func testFontSize() {
         assertIntProperty(&self.aceView.fontSize, name: "Font size", defaultValue: 12, testValue: 16)
     }
     
