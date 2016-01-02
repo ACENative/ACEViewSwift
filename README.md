@@ -14,13 +14,16 @@ ACEViewSwift's documentation is done via [Jazzy](https://github.com/realm/jazzy)
 
 # Usage
 
+### Cocoapods
+`pod "ACEViewSwift`
+
+### Manually
 1. Clone the repo
 2. Run `git submodule update --init --recursive` (for the dependencies)
 3. Build the framework target
 4. Add it into your Swift project
-5. `import ACEViewSwift` into your files in order to use it
 
-*Note*: A pod will be released soon to simplify installation
+then just `import ACEViewSwift` into your files in order to use it
 
 ![ACEView XIB](https://raw.github.com/faceleg/ACEView/master/Collateral/ace-xib.jpg)
 
