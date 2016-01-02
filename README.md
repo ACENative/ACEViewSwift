@@ -15,7 +15,7 @@ ACEViewSwift's documentation is done via [Jazzy](https://github.com/realm/jazzy)
 # Installation & Usage
 
 ### Cocoapods
-`pod "ACEViewSwift`
+`pod "ACEViewSwift"`
 
 ### Manually
 1. Clone the repo
