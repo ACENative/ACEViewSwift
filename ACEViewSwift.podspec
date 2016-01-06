@@ -18,13 +18,14 @@ Pod::Spec.new do |s|
   
   s.documentation_url = "http://acenative.github.io/ACEViewSwift/"
 
-  s.platform     = :osx
   s.platform     = :osx, "10.10"
 
-  s.source       = { :git => "https://github.com/ACENative/ACEViewSwift.git", :tag => "v1.0.0" }
+  s.source       = { :git => "https://github.com/ACENative/ACEViewSwift.git", :tag => "v1.0.0", :submodules => true }
 
-  s.source_files  = "ACEViewSwift"
+  s.source_files  = "ACEViewSwift/*"
 
   s.framework  = "WebKit"
+  
+  s.resources = ["ACEBuilds/src-min/*", "ACEViewSwift/Dependencies/emmet/*", "ACEViewSwift/index.html"]
 
 end
