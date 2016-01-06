@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/ACENative/ACEViewSwift.git", :tag => "v1.0.1", :submodules => true }
 
-  s.source_files  = "ACEViewSwift/*"
+  s.source_files  = "ACEViewSwift/*.swift"
 
   s.framework  = "WebKit"
   
