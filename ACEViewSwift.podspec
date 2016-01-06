@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ACEViewSwift"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "Use the wonderful ACE editor in your Swift Cocoa applications"
 
   s.description  = <<-DESC
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :osx, "10.10"
 
-  s.source       = { :git => "https://github.com/ACENative/ACEViewSwift.git", :tag => "v1.0.0", :submodules => true }
+  s.source       = { :git => "https://github.com/ACENative/ACEViewSwift.git", :tag => "v1.0.1", :submodules => true }
 
   s.source_files  = "ACEViewSwift/*"
 
