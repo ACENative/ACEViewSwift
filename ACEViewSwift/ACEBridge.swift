@@ -49,7 +49,7 @@ class ACESession: ACEBridgedObject {
         return ACEMode(name: modeName.last!)
     }
 
-    func setMode(mode: ACEMode, inline: Bool = true) {
+    func setMode(mode: ACEMode, inline: Bool = false) {
         let modeName = mode.name
         let args = [
             "path": "ace/mode/\(modeName)",
