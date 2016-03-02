@@ -89,6 +89,14 @@ class ACEViewSwiftTests: XCTestCase {
         XCTAssertEqual(self.aceView.mode.name, "html", "Mode should be now changed to 'html'")
     }
     
+    func testModeInline() {
+        XCTAssertEqual(self.aceView.mode.name, "text", "Mode should be 'text' by default")
+        let newMode = ACEMode.HTML
+        self.aceView.setMode(newMode, inline: true)
+        XCTAssertEqual(self.aceView.mode, newMode)
+        XCTAssertEqual(self.aceView.mode.name, "html", "Mode should be now changed to 'html'")
+    }
+    
     func testTheme() {
         XCTAssertEqual(self.aceView.theme.name, "None", "Theme should be 'None' by default")
         let newTheme = ACETheme.Monokai

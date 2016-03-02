@@ -49,9 +49,13 @@ class ACESession: ACEBridgedObject {
         return ACEMode(name: modeName.last!)
     }
 
-    func setMode(mode: ACEMode) {
+    func setMode(mode: ACEMode, inline: Bool = true) {
         let modeName = mode.name
-        jsCall(arguments: ["ace/mode/\(modeName)"])
+        let args = [
+            "path": "ace/mode/\(modeName)",
+            "inline": inline
+        ]
+        jsCall("setMode", arguments: [args])
     }
     
     /*--------------------------------------------------------------------------------*/

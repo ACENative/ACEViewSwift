@@ -116,6 +116,17 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
     }
     
     /**
+     Set the syntax highlighting mode with an inline parameter.
+     
+     Uses [editor.getSession().setMode()](http://ace.ajax.org/#EditSession.setMode).
+     
+     - SeeAlso: ACEMode
+     */
+    public func setMode(mode: ACEMode, inline: Bool) {
+        editor.getSession().setMode(mode, inline: inline)
+    }
+    
+    /**
      Set the theme.
      
      Uses [editor.setTheme()](http://ace.ajax.org/#Editor.setTheme).
