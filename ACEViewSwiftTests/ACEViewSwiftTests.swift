@@ -15,7 +15,7 @@ extension XCTestCase {
     func assertBooleanProperty(inout property: Bool, name: String, defaultValue: Bool) {
         
         func flagMsg(flag: Bool) -> String { return flag ? "turned on" : "turned off" }
-
+        
         XCTAssertEqual(property, defaultValue, "\(name) should be \(flagMsg(defaultValue)) by default")
         property = !defaultValue
         XCTAssertEqual(property, !defaultValue, "\(name) should be \(flagMsg(!defaultValue)) now")
@@ -46,9 +46,15 @@ class ACEViewSwiftTests: XCTestCase {
     var aceView: ACEView!
     var delegate: ACEDelegate!
     
-    
     func wait(seconds: NSTimeInterval = 5.0) {
         waitForExpectationsWithTimeout(seconds, handler: nil)
+    }
+    
+    func waitWithRunLoop(seconds: NSTimeInterval) {
+        let startTime = NSDate.timeIntervalSinceReferenceDate()
+        while NSDate.timeIntervalSinceReferenceDate() - startTime < seconds {
+            CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.1, false);
+        }
     }
     
     override func setUp() {
@@ -67,7 +73,7 @@ class ACEViewSwiftTests: XCTestCase {
         }
         
         wait()
-
+        
     }
     
     override func tearDown() {
@@ -91,10 +97,11 @@ class ACEViewSwiftTests: XCTestCase {
     
     func testModeInline() {
         XCTAssertEqual(self.aceView.mode.name, "text", "Mode should be 'text' by default")
-        let newMode = ACEMode.HTML
+        let newMode = ACEMode.PHP
         self.aceView.setMode(newMode, inline: true)
+        waitWithRunLoop(1)
         XCTAssertEqual(self.aceView.mode, newMode)
-        XCTAssertEqual(self.aceView.mode.name, "html", "Mode should be now changed to 'html'")
+        XCTAssertEqual(self.aceView.mode.name, "php", "Mode should be now changed to 'html'")
     }
     
     func testTheme() {
