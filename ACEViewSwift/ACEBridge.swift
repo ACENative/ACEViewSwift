@@ -43,12 +43,13 @@ class ACESession: ACEBridgedObject {
     }
     
     /*--------------------------------------------------------------------------------*/
-
+    
     func getMode() -> ACEMode {
-        let modeName = getOption("mode").toString().componentsSeparatedByString("/")
-        return ACEMode(name: modeName.last!)
+        var modeName = getOption("mode").toString().componentsSeparatedByString("/").last!
+        modeName = modeName.stringByReplacingOccurrencesOfString("-inline$", withString: "", options: .RegularExpressionSearch, range: modeName.startIndex..<modeName.endIndex)
+        return ACEMode(name: modeName)
     }
-
+    
     func setMode(mode: ACEMode, inline: Bool = false) {
         let modeName = mode.name
         let args = [
@@ -129,7 +130,7 @@ class ACESession: ACEBridgedObject {
 /*--------------------------------------------------------------------------------*/
 
 class ACEEditor: ACEBridgedObject {
-
+    
     var string: String {
         get {
             return getValue()
@@ -161,7 +162,7 @@ class ACEEditor: ACEBridgedObject {
     }
     
     /*--------------------------------------------------------------------------------*/
-
+    
     func getTheme() -> ACETheme {
         let themeName = getOption("theme").toString().componentsSeparatedByString("/")
         return ACETheme(name: themeName.last!)
@@ -172,7 +173,7 @@ class ACEEditor: ACEBridgedObject {
     }
     
     /*--------------------------------------------------------------------------------*/
-
+    
     func getWrapBehavioursEnabled() -> Bool {
         return jsCall().toBool()
     }
@@ -212,7 +213,7 @@ class ACEEditor: ACEBridgedObject {
     }
     
     /*--------------------------------------------------------------------------------*/
-
+    
     func getFadeFoldWidgets() -> Bool {
         return jsCall().toBool()
     }
@@ -222,7 +223,7 @@ class ACEEditor: ACEBridgedObject {
     }
     
     /*--------------------------------------------------------------------------------*/
-
+    
     func getHighlightActiveLine() -> Bool {
         return jsCall().toBool()
     }
@@ -232,7 +233,7 @@ class ACEEditor: ACEBridgedObject {
     }
     
     /*--------------------------------------------------------------------------------*/
-
+    
     func getHighlightGutterLine() -> Bool {
         return jsCall().toBool()
     }
@@ -242,7 +243,7 @@ class ACEEditor: ACEBridgedObject {
     }
     
     /*--------------------------------------------------------------------------------*/
-
+    
     func getHighlightSelectedWord() -> Bool {
         return jsCall().toBool()
     }
@@ -252,7 +253,7 @@ class ACEEditor: ACEBridgedObject {
     }
     
     /*--------------------------------------------------------------------------------*/
-
+    
     func getDisplayIndentGuides() -> Bool {
         return jsCall().toBool()
     }
@@ -272,7 +273,7 @@ class ACEEditor: ACEBridgedObject {
     }
     
     /*--------------------------------------------------------------------------------*/
-
+    
     func getScrollSpeed() -> Int {
         return Int(jsCall().toInt32())
     }
@@ -287,9 +288,9 @@ class ACEEditor: ACEBridgedObject {
         let handler = jsCall().toDictionary()
         if let id = handler["$id"] as? String {
             switch id {
-                case "ace/keyboard/vim": return .Vim
-                case "ace/keyboard/emacs": return .Emacs
-                default: break
+            case "ace/keyboard/vim": return .Vim
+            case "ace/keyboard/emacs": return .Emacs
+            default: break
             }
         }
         return .Ace
@@ -310,7 +311,7 @@ class ACEEditor: ACEBridgedObject {
     }
     
     /*--------------------------------------------------------------------------------*/
-
+    
     var basicAutocomplete: Bool {
         get {
             return getOption("enableBasicAutocompletion").toBool()
@@ -320,9 +321,9 @@ class ACEEditor: ACEBridgedObject {
             setOptions(options)
         }
     }
-
+    
     /*--------------------------------------------------------------------------------*/
-
+    
     var enableLiveAutocompletion: Bool {
         get {
             return getOption("enableLiveAutocompletion").toBool()
@@ -346,7 +347,7 @@ class ACEEditor: ACEBridgedObject {
     }
     
     /*--------------------------------------------------------------------------------*/
-
+    
     var emmet: Bool {
         get {
             return getOption("emmet").toBool()
@@ -388,7 +389,7 @@ class ACEEditor: ACEBridgedObject {
     }
     
     /*--------------------------------------------------------------------------------*/
-
+    
     var fontFamily: String {
         get {
             let family = getOption("fontFamily").toString()
@@ -401,7 +402,7 @@ class ACEEditor: ACEBridgedObject {
     }
     
     /*--------------------------------------------------------------------------------*/
-
+    
     func goToLine(line: Int, column:Int, animated: Bool) {
         jsCall(arguments: [line, column, animated])
     }
@@ -419,7 +420,7 @@ class ACEEditor: ACEBridgedObject {
     }
     
     /*--------------------------------------------------------------------------------*/
-
+    
     var showGutter: Bool {
         get {
             return getOption("showGutter").toBool()
@@ -433,7 +434,7 @@ class ACEEditor: ACEBridgedObject {
 }
 
 class ACEContext {
-
+    
     private var jsContext: JSContext
     
     weak var aceView: ACEView? {
@@ -454,11 +455,11 @@ class ACEContext {
         self.jsContext = context
         self.editor = ACEEditor(jsValue: context.objectForKeyedSubscript("editor"))
     }
-
+    
     func evaluateScript(script: String) -> JSValue! {
         return jsContext.evaluateScript(script)
     }
-
+    
     func focusEditor() {
         jsContext.evaluateScript("focusEditor();")
     }
