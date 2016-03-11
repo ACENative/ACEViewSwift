@@ -759,6 +759,9 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
         let textDidChangeNotification = NSNotification(name: ACETextDidEndEditingNotification, object: self)
         NSNotificationCenter.defaultCenter().postNotification(textDidChangeNotification)
         delegate?.textDidChange?(textDidChangeNotification)
+
+        self.willChangeValueForKey("string")
+        self.didChangeValueForKey("string")
     }
     
     private func searchOptions(options: NSDictionary) -> String? {

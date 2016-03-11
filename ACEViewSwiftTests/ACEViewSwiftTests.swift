@@ -250,6 +250,12 @@ class ACEViewSwiftTests: XCTestCase {
         XCTAssertTrue(self.aceView.editable)
     }
     
+    var stringCopy = ""
     
-    
+    func testStringBinding() {
+        self.stringCopy = ""
+        self.bind("stringCopy", toObject: self.aceView, withKeyPath: "string", options: nil)
+        self.aceView.string = "hello"
+        XCTAssertEqual(self.stringCopy, "hello")
+    }
 }
