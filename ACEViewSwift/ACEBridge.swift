@@ -23,7 +23,7 @@ class ACEBridgedObject {
      This function translates a native call to the respective JS one.
      _Note:_ By default it directly translates a call based on the caller signature
      */
-    func jsCall(functionName: String = __FUNCTION__, arguments: [AnyObject]! = nil) -> JSValue {
+    func jsCall(functionName: String = #function, arguments: [AnyObject]! = nil) -> JSValue {
         let selector = functionName.stringByReplacingOccurrencesOfString("()", withString: "")
         return jsValue.invokeMethod(selector, withArguments: arguments)
     }

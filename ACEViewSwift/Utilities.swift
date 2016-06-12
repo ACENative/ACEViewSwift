@@ -34,13 +34,13 @@ func ACEMakeRange(range: NSRange, string swiftString: String) -> ACERange {
     var rangeLocationFound = false
     
     let chars = string.length
-    var numberOfLines = chars
-    var index = chars
+    var numberOfLines = 0
+    var index = 0
     let stringLength = chars
     
     var lineRange: NSRange
     
-    for index = 0, numberOfLines = 0; index < stringLength; numberOfLines++ {
+    while index < stringLength {
         lineRange = string.lineRangeForRange(NSMakeRange(index, 0))
         index = NSMaxRange(lineRange)
         
@@ -60,7 +60,9 @@ func ACEMakeRange(range: NSRange, string swiftString: String) -> ACERange {
             break
         }
 
+        numberOfLines += 1
     }
+    
     return aceRange
 }
 
