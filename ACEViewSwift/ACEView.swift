@@ -705,7 +705,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
         webView.mainFrame.loadHTMLString(html, baseURL: bundle.bundleURL)
     }
     
-    override init(frame frameRect: NSRect) {
+    public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         initWebView()
     }
