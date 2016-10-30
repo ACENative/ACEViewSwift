@@ -141,6 +141,7 @@ class ACEEditor: ACEBridgedObject {
             jsCall("clearSelection")
             jsCall("moveCursorTo", arguments: [0,0])
             jsValue.context.evaluateScript("reportChanges = true;")
+            jsValue.context.evaluateScript("editor.getSession().setUndoManager(new ace.UndoManager());")
             jsValue.context.evaluateScript("ACEView.aceTextDidChange();")
         }
     }
