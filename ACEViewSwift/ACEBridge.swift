@@ -23,8 +23,8 @@ class ACEBridgedObject {
      This function translates a native call to the respective JS one.
      _Note:_ By default it directly translates a call based on the caller signature
      */
-    func jsCall(functionName: String = #function, arguments: [AnyObject]! = nil) -> JSValue {
-        let selector = functionName.stringByReplacingOccurrencesOfString("()", withString: "")
+    @discardableResult func jsCall(_ functionName: String = #function, arguments: [AnyObject]! = nil) -> JSValue {
+        let selector = functionName.replacingOccurrences(of: "()", with: "")
         return jsValue.invokeMethod(selector, withArguments: arguments)
     }
     
@@ -34,29 +34,29 @@ class ACEBridgedObject {
 
 class ACESession: ACEBridgedObject {
     
-    func getOption(option: String) -> JSValue {
-        return jsCall(arguments: [option])
+    func getOption(_ option: String) -> JSValue {
+        return jsCall(arguments: [option as AnyObject])
     }
     
-    func setOptions(options: [String:AnyObject]) {
-        jsCall(arguments: [options])
+    func setOptions(_ options: [String:AnyObject]) {
+        jsCall(arguments: [options as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
     
     func getMode() -> ACEMode {
-        var modeName = getOption("mode").toString().componentsSeparatedByString("/").last!
-        modeName = modeName.stringByReplacingOccurrencesOfString("-inline$", withString: "", options: .RegularExpressionSearch, range: modeName.startIndex..<modeName.endIndex)
+        var modeName = getOption("mode").toString().components(separatedBy: "/").last!
+        modeName = modeName.replacingOccurrences(of: "-inline$", with: "", options: .regularExpression)
         return ACEMode(name: modeName)
     }
     
-    func setMode(mode: ACEMode, inline: Bool = false) {
+    func setMode(_ mode: ACEMode, inline: Bool = false) {
         let modeName = mode.name
         let args = [
             "path": "ace/mode/\(modeName)",
             "inline": inline
-        ]
-        jsCall("setMode", arguments: [args])
+        ] as [String : Any]
+        jsCall("setMode", arguments: [args as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -65,22 +65,22 @@ class ACESession: ACEBridgedObject {
         return jsCall().toBool()
     }
     
-    func setUseWrapMode(flag: Bool) {
-        jsCall(arguments: [flag])
+    func setUseWrapMode(_ flag: Bool) {
+        jsCall(arguments: [flag as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
     
     func getWrapLimitRange() -> NSRange {
         let range = jsCall().toDictionary()
-        let min = (range["min"] as? Int) ?? 0
-        let max = (range["max"] as? Int) ?? 0
+        let min = (range?["min"] as? Int) ?? 0
+        let max = (range?["max"] as? Int) ?? 0
         return NSRange(location: min, length: max)
     }
     
-    func setWrapLimitRange(range: NSRange) {
+    func setWrapLimitRange(_ range: NSRange) {
         setUseWrapMode(true)
-        jsCall(arguments: [range.location, range.length])
+        jsCall(arguments: [range.location as AnyObject, range.length as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -91,8 +91,8 @@ class ACESession: ACEBridgedObject {
     
     /*--------------------------------------------------------------------------------*/
     
-    func getLine(line: Int) -> String {
-        return jsCall(arguments: [line]).toString()
+    func getLine(_ line: Int) -> String {
+        return jsCall(arguments: [line as AnyObject]).toString()
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -101,8 +101,8 @@ class ACESession: ACEBridgedObject {
         return jsCall().toString()
     }
     
-    func setNewLineMode(mode: String) {
-        jsCall(arguments: [mode])
+    func setNewLineMode(_ mode: String) {
+        jsCall(arguments: [mode as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -111,8 +111,8 @@ class ACESession: ACEBridgedObject {
         return jsCall().toBool()
     }
     
-    func setUseSoftTabs(flag: Bool) {
-        jsCall(arguments: [flag])
+    func setUseSoftTabs(_ flag: Bool) {
+        jsCall(arguments: [flag as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -121,8 +121,8 @@ class ACESession: ACEBridgedObject {
         return Int(jsCall().toInt32())
     }
     
-    func setTabSize(size: Int) {
-        jsCall(arguments: [size])
+    func setTabSize(_ size: Int) {
+        jsCall(arguments: [size as AnyObject])
     }
     
 }
@@ -139,7 +139,7 @@ class ACEEditor: ACEBridgedObject {
             jsValue.context.evaluateScript("reportChanges = false;")
             setValue(newValue)
             jsCall("clearSelection")
-            jsCall("moveCursorTo", arguments: [0,0])
+            jsCall("moveCursorTo", arguments: [0 as AnyObject,0 as AnyObject])
             jsValue.context.evaluateScript("reportChanges = true;")
             jsValue.context.evaluateScript("editor.getSession().setUndoManager(new ace.UndoManager());")
             jsValue.context.evaluateScript("ACEView.aceTextDidChange();")
@@ -152,8 +152,8 @@ class ACEEditor: ACEBridgedObject {
         return jsCall().toString()
     }
     
-    func setValue(value: String) {
-        jsCall(arguments:[value])
+    func setValue(_ value: String) {
+        jsCall(arguments:[value as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -165,12 +165,12 @@ class ACEEditor: ACEBridgedObject {
     /*--------------------------------------------------------------------------------*/
     
     func getTheme() -> ACETheme {
-        let themeName = getOption("theme").toString().componentsSeparatedByString("/")
+        let themeName = getOption("theme").toString().components(separatedBy: "/")
         return ACETheme(name: themeName.last!)
     }
     
-    func setTheme(theme: ACETheme) {
-        jsCall(arguments: ["ace/theme/\(theme.name)"])
+    func setTheme(_ theme: ACETheme) {
+        jsCall(arguments: ["ace/theme/\(theme.name)" as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -179,8 +179,8 @@ class ACEEditor: ACEBridgedObject {
         return jsCall().toBool()
     }
     
-    func setWrapBehavioursEnabled(flag: Bool) {
-        jsCall(arguments: [flag])
+    func setWrapBehavioursEnabled(_ flag: Bool) {
+        jsCall(arguments: [flag as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -189,8 +189,8 @@ class ACEEditor: ACEBridgedObject {
         return jsCall().toBool()
     }
     
-    func setShowInvisibles(flag: Bool) {
-        jsCall(arguments: [flag])
+    func setShowInvisibles(_ flag: Bool) {
+        jsCall(arguments: [flag as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -199,8 +199,8 @@ class ACEEditor: ACEBridgedObject {
         return jsCall().toBool()
     }
     
-    func setReadOnly(flag: Bool) {
-        jsCall(arguments: [flag])
+    func setReadOnly(_ flag: Bool) {
+        jsCall(arguments: [flag as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -209,8 +209,8 @@ class ACEEditor: ACEBridgedObject {
         return jsCall().toBool()
     }
     
-    func setShowFoldWidgets(flag: Bool) {
-        jsCall(arguments: [flag])
+    func setShowFoldWidgets(_ flag: Bool) {
+        jsCall(arguments: [flag as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -219,8 +219,8 @@ class ACEEditor: ACEBridgedObject {
         return jsCall().toBool()
     }
     
-    func setFadeFoldWidgets(flag: Bool) {
-        jsCall(arguments: [flag])
+    func setFadeFoldWidgets(_ flag: Bool) {
+        jsCall(arguments: [flag as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -229,8 +229,8 @@ class ACEEditor: ACEBridgedObject {
         return jsCall().toBool()
     }
     
-    func setHighlightActiveLine(flag: Bool) {
-        jsCall(arguments: [flag])
+    func setHighlightActiveLine(_ flag: Bool) {
+        jsCall(arguments: [flag as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -239,8 +239,8 @@ class ACEEditor: ACEBridgedObject {
         return jsCall().toBool()
     }
     
-    func setHighlightGutterLine(flag: Bool) {
-        jsCall(arguments: [flag])
+    func setHighlightGutterLine(_ flag: Bool) {
+        jsCall(arguments: [flag as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -249,8 +249,8 @@ class ACEEditor: ACEBridgedObject {
         return jsCall().toBool()
     }
     
-    func setHighlightSelectedWord(flag: Bool) {
-        jsCall(arguments: [flag])
+    func setHighlightSelectedWord(_ flag: Bool) {
+        jsCall(arguments: [flag as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -259,8 +259,8 @@ class ACEEditor: ACEBridgedObject {
         return jsCall().toBool()
     }
     
-    func setDisplayIndentGuides(flag: Bool) {
-        jsCall(arguments: [flag])
+    func setDisplayIndentGuides(_ flag: Bool) {
+        jsCall(arguments: [flag as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -269,8 +269,8 @@ class ACEEditor: ACEBridgedObject {
         return jsCall().toBool()
     }
     
-    func setAnimatedScroll(flag: Bool) {
-        jsCall(arguments: [flag])
+    func setAnimatedScroll(_ flag: Bool) {
+        jsCall(arguments: [flag as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -279,36 +279,36 @@ class ACEEditor: ACEBridgedObject {
         return Int(jsCall().toInt32())
     }
     
-    func setScrollSpeed(speed: Int) {
-        jsCall(arguments: [speed])
+    func setScrollSpeed(_ speed: Int) {
+        jsCall(arguments: [speed as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
     
     func getKeyboardHandler() -> ACEKeyboardHandler {
         let handler = jsCall().toDictionary()
-        if let id = handler["$id"] as? String {
+        if let id = handler?["$id"] as? String {
             switch id {
-            case "ace/keyboard/vim": return .Vim
-            case "ace/keyboard/emacs": return .Emacs
+            case "ace/keyboard/vim": return .vim
+            case "ace/keyboard/emacs": return .emacs
             default: break
             }
         }
-        return .Ace
+        return .ace
     }
     
-    func setKeyboardHandler(handler: ACEKeyboardHandler) {
+    func setKeyboardHandler(_ handler: ACEKeyboardHandler) {
         jsValue.context.evaluateScript("editor.setKeyboardHandler(\(handler.command))")
     }
     
     /*--------------------------------------------------------------------------------*/
     
-    func getOption(option: String) -> JSValue {
-        return jsCall(arguments: [option])
+    func getOption(_ option: String) -> JSValue {
+        return jsCall(arguments: [option as AnyObject])
     }
     
-    func setOptions(options: [String:AnyObject]) {
-        jsCall(arguments: [options])
+    func setOptions(_ options: [String:AnyObject]) {
+        jsCall(arguments: [options as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -319,7 +319,7 @@ class ACEEditor: ACEBridgedObject {
         }
         set {
             let options = ["enableBasicAutocompletion":newValue]
-            setOptions(options)
+            setOptions(options as [String : AnyObject])
         }
     }
     
@@ -331,7 +331,7 @@ class ACEEditor: ACEBridgedObject {
         }
         set {
             let options = ["enableLiveAutocompletion":newValue]
-            setOptions(options)
+            setOptions(options as [String : AnyObject])
         }
     }
     
@@ -343,7 +343,7 @@ class ACEEditor: ACEBridgedObject {
         }
         set {
             let options = ["enableSnippets":newValue]
-            setOptions(options)
+            setOptions(options as [String : AnyObject])
         }
     }
     
@@ -355,7 +355,7 @@ class ACEEditor: ACEBridgedObject {
         }
         set {
             let options = ["emmet":newValue]
-            setOptions(options)
+            setOptions(options as [String : AnyObject])
         }
     }
     
@@ -365,8 +365,8 @@ class ACEEditor: ACEBridgedObject {
         return Int(jsCall().toInt32())
     }
     
-    func setPrintMarginColumn(margin: Int) {
-        jsCall(arguments: [margin])
+    func setPrintMarginColumn(_ margin: Int) {
+        jsCall(arguments: [margin as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -375,8 +375,8 @@ class ACEEditor: ACEBridgedObject {
         return jsCall().toBool()
     }
     
-    func setShowPrintMargin(flag: Bool) {
-        jsCall(arguments: [flag])
+    func setShowPrintMargin(_ flag: Bool) {
+        jsCall(arguments: [flag as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -385,8 +385,8 @@ class ACEEditor: ACEBridgedObject {
         return Int(jsCall().toInt32())
     }
     
-    func setFontSize(size: Int) {
-        jsCall(arguments: [size])
+    func setFontSize(_ size: Int) {
+        jsCall(arguments: [size as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -394,18 +394,18 @@ class ACEEditor: ACEBridgedObject {
     var fontFamily: String {
         get {
             let family = getOption("fontFamily").toString()
-            return family == "undefined" ? "None" : family
+            return family! == "undefined" ? "None" : family!
         }
         set {
             let options = ["fontFamily":newValue]
-            setOptions(options)
+            setOptions(options as [String : AnyObject])
         }
     }
     
     /*--------------------------------------------------------------------------------*/
     
-    func goToLine(line: Int, column:Int, animated: Bool) {
-        jsCall(arguments: [line, column, animated])
+    func goToLine(_ line: Int, column:Int, animated: Bool) {
+        jsCall(arguments: [line as AnyObject, column as AnyObject, animated as AnyObject])
     }
     
     /*--------------------------------------------------------------------------------*/
@@ -416,7 +416,7 @@ class ACEEditor: ACEBridgedObject {
         }
         set {
             let options = ["showLineNumbers":newValue]
-            setOptions(options)
+            setOptions(options as [String : AnyObject])
         }
     }
     
@@ -428,7 +428,7 @@ class ACEEditor: ACEBridgedObject {
         }
         set {
             let options = ["showGutter":newValue]
-            setOptions(options)
+            setOptions(options as [String : AnyObject])
         }
     }
     
@@ -436,19 +436,19 @@ class ACEEditor: ACEBridgedObject {
 
 class ACEContext {
     
-    private var jsContext: JSContext
+    fileprivate var jsContext: JSContext
     
     weak var aceView: ACEView? {
         didSet {
-            jsContext.setObject(aceView, forKeyedSubscript: "ACEView")
+            jsContext.setObject(aceView, forKeyedSubscript: "ACEView" as (NSCopying & NSObjectProtocol)!)
         }
     }
     
     var editor: ACEEditor
     
-    var exceptionHandler: ((JSContext!, JSValue!) -> Void)! {
+    var exceptionHandler: ((JSContext?, JSValue?) -> Void)! {
         didSet {
-            jsContext.exceptionHandler = exceptionHandler
+            jsContext.exceptionHandler = exceptionHandler 
         }
     }
     
@@ -457,7 +457,7 @@ class ACEContext {
         self.editor = ACEEditor(jsValue: context.objectForKeyedSubscript("editor"))
     }
     
-    func evaluateScript(script: String) -> JSValue! {
+    func evaluateScript(_ script: String) -> JSValue! {
         return jsContext.evaluateScript(script)
     }
     

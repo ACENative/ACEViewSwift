@@ -24,28 +24,28 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
 
      - Parameter notification: The ACETextDidEndEditingNotification notification that is posted to the default notification center.
     */
-    optional func textDidChange(notification: NSNotification)
+    @objc optional func textDidChange(_ notification: Notification)
     
     /** Provides the print settings to be used for a print job. Defaults to application shared settings.*/
-    optional func printInformation() -> NSPrintInfo
+    @objc optional func printInformation() -> NSPrintInfo
     
     /** Provides the desired font size for printing. Defaults to 10px */
-    optional func printFontSize() -> Int
+    @objc optional func printFontSize() -> Int
     
     /** Provides the desired height for page headers and footers. Defaults to 0.0px */
-    optional func printHeaderHeight() -> Float
-    optional func printFooterHeight() -> Float
+    @objc optional func printHeaderHeight() -> Float
+    @objc optional func printFooterHeight() -> Float
     
     /** Draws the headers and footers. Defaults to no headers and footers */
-    optional func drawPrintHeaderForPage(page: Int, inRect: NSRect)
-    optional func drawPrintFooterForPage(page: Int, inRect: NSRect)
+    @objc optional func drawPrintHeaderForPage(_ page: Int, inRect: NSRect)
+    @objc optional func drawPrintFooterForPage(_ page: Int, inRect: NSRect)
     
     /** Called before starting and ending a print job */
-    optional func startPrintOperation(printOperation: NSPrintOperation)
-    optional func endPrintOperation()
+    @objc optional func startPrintOperation(_ printOperation: NSPrintOperation)
+    @objc optional func endPrintOperation()
     
     /** Called after the ACEView has been loaded */
-    optional func aceViewDidLoad()
+    @objc optional func aceViewDidLoad()
 }
 
 
@@ -59,18 +59,18 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
 /**
  This class provides the main public interface for the ACEView. 
  */
-@objc public class ACEView: NSScrollView, NSTextFinderClient, WebFrameLoadDelegate, WebUIDelegate, ACEViewJSExports {
+@objc open class ACEView: NSScrollView, NSTextFinderClient, WebFrameLoadDelegate, WebUIDelegate, ACEViewJSExports {
     
-    private var editor: ACEEditor!
+    fileprivate var editor: ACEEditor!
     
     /**
      The ACEView delegate.
      
      - SeeAlso: ACEViewDelegate
      */
-    public var delegate: ACEViewDelegate?
+    open var delegate: ACEViewDelegate?
     
-    public var firstSelectedRange: NSRange = NSRange()
+    open var firstSelectedRange: NSRange = NSRange()
     
     /*--------------------------------------------------------------------------------*/
     
@@ -79,7 +79,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
     /** 
      Sets the cursor to the editor view.
     */
-    public func focus() {
+    open func focus() {
         context.focusEditor()
     }
     
@@ -90,7 +90,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      - Returns: The ACE Editor content.
      */
-    public var string: String {
+    open var string: String {
         get {
             return editor.string
         }
@@ -106,7 +106,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      - SeeAlso: ACEMode
      */
-    public var mode: ACEMode {
+    open var mode: ACEMode {
         get {
             return editor.getSession().getMode()
         }
@@ -122,7 +122,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      - SeeAlso: ACEMode
      */
-    public func setMode(mode: ACEMode, inline: Bool) {
+    open func setMode(_ mode: ACEMode, inline: Bool) {
         editor.getSession().setMode(mode, inline: inline)
     }
     
@@ -133,7 +133,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      - SeeAlso: ACETheme
      */
-    public var theme: ACETheme {
+    open var theme: ACETheme {
         get {
             return editor.getTheme()
         }
@@ -152,7 +152,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      - SeeAlso: useSoftWrap
      - SeeAlso: wrapLimitRange
      */
-    public var wrappingBehavioursEnabled: Bool {
+    open var wrappingBehavioursEnabled: Bool {
         get {
             return editor.getWrapBehavioursEnabled()
         }
@@ -172,7 +172,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      - SeeAlso: wrappingBehavioursEnabled
      - SeeAlso: wrapLimitRange
      */
-    public var useSoftWrap: Bool {
+    open var useSoftWrap: Bool {
         get {
             return editor.getSession().getUseWrapMode()
         }
@@ -189,7 +189,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      - SeeAlso: wrappingBehavioursEnabled
      - SeeAlso: useSoftWrap
      */
-    public var wrapLimitRange: NSRange {
+    open var wrapLimitRange: NSRange {
         get {
             return editor.getSession().getWrapLimitRange()
         }
@@ -203,7 +203,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setShowInvisibles()](http://ace.ajax.org/#Editor.setShowInvisibles).
      */
-    public var showInvisibles: Bool {
+    open var showInvisibles: Bool {
         get {
             return editor.getShowInvisibles()
         }
@@ -217,7 +217,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setReadOnly()](http://ace.ajax.org/#Editor.setReadOnly).
      */
-    public var readOnly: Bool {
+    open var readOnly: Bool {
         get {
             return editor.getReadOnly()
         }
@@ -231,7 +231,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setShowFoldWidgets()](http://ace.ajax.org/#Editor.setShowFoldWidgets).
      */
-    public var showFoldWidgets: Bool {
+    open var showFoldWidgets: Bool {
         get {
             return editor.getShowFoldWidgets()
         }
@@ -245,7 +245,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setFadeFoldWidgets()](http://ace.ajax.org/#Editor.setFadeFoldWidgets).
      */
-    public var fadeFoldWidgets: Bool {
+    open var fadeFoldWidgets: Bool {
         get {
             return editor.getFadeFoldWidgets()
         }
@@ -259,7 +259,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setHighlightActiveLine()](http://ace.ajax.org/#Editor.setHighlightActiveLine).
      */
-    public var highlightActiveLine: Bool {
+    open var highlightActiveLine: Bool {
         get {
             return editor.getHighlightActiveLine()
         }
@@ -275,7 +275,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      - Warning: The ACE Editor documentation for this behaviour is incomplete.
      */
-    public var highlightGutterLine: Bool {
+    open var highlightGutterLine: Bool {
         get {
             return editor.getHighlightGutterLine()
         }
@@ -289,7 +289,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setHighlightSelectedWord()](http://ace.ajax.org/#Editor.setHighlightSelectedWord).
      */
-    public var highlightSelectedWord: Bool {
+    open var highlightSelectedWord: Bool {
         get {
             return editor.getHighlightSelectedWord()
         }
@@ -303,7 +303,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setDisplayIndentGuides()](http://ace.ajax.org/#Editor.setDisplayIndentGuides).
      */
-    public var displayIndentGuides: Bool {
+    open var displayIndentGuides: Bool {
         get {
             return editor.getDisplayIndentGuides()
         }
@@ -319,7 +319,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      - Warning: The ACE Editor documentation for this behaviour is incomplete.
      */
-    public var animatedScroll: Bool {
+    open var animatedScroll: Bool {
         get {
             return editor.getAnimatedScroll()
         }
@@ -333,7 +333,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setScrollSpeed()](http://ace.ajax.org/#Editor.setScrollSpeed).
      */
-    public var scrollSpeed: Int {
+    open var scrollSpeed: Int {
         get {
             return editor.getScrollSpeed()
         }
@@ -349,7 +349,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      - SeeAlso: ACETheme
      */
-    public var keyboardHandler: ACEKeyboardHandler {
+    open var keyboardHandler: ACEKeyboardHandler {
         get {
             return editor.getKeyboardHandler()
         }
@@ -363,7 +363,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setOptions({ enableBasicAutocompletion: BOOL })]
      */
-    public var basicAutoCompletion: Bool {
+    open var basicAutoCompletion: Bool {
         get {
             return editor.basicAutocomplete
         }
@@ -377,7 +377,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setOptions({ enableLiveAutocompletion: BOOL })]
      */
-    public var liveAutocompletion: Bool {
+    open var liveAutocompletion: Bool {
         get {
             return editor.enableLiveAutocompletion
         }
@@ -391,7 +391,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setOptions({ enableSnippets: BOOL })]
      */
-    public var snippets: Bool {
+    open var snippets: Bool {
         get {
             return editor.enableSnippets
         }
@@ -405,7 +405,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setOptions({ emmet: BOOL })]
      */
-    public var emmet: Bool {
+    open var emmet: Bool {
         get {
             return editor.emmet
         }
@@ -419,7 +419,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setPrintMarginColumn()]( http://ace.ajax.org/#Editor.setPrintMarginColumn ).
      */
-    public var printMarginColumn: Int {
+    open var printMarginColumn: Int {
         get {
             return editor.getPrintMarginColumn()
         }
@@ -434,7 +434,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      Uses [editor.setShowPrintMargin()]( http://ace.ajax.org/#api=editor&nav=setShowPrintMargin ).
      
      */
-    public var showPrintMargin: Bool {
+    open var showPrintMargin: Bool {
         get {
             return editor.getShowPrintMargin()
         }
@@ -448,7 +448,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setFontSize()](http://ace.ajax.org/#Editor.setFontSize).
      */
-    public var fontSize: Int {
+    open var fontSize: Int {
         get {
             return editor.getFontSize()
         }
@@ -462,7 +462,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setOptions({ fontFamily: NSString })]
      */
-    public var fontFamily: String {
+    open var fontFamily: String {
         get {
             return editor.fontFamily
         }
@@ -481,7 +481,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      - column: The column number to go to
      - animated: If `true` animates scolling
      */
-    public func goToLine(line: Int, column:Int, animated: Bool) {
+    open func goToLine(_ line: Int, column:Int, animated: Bool) {
         editor.goToLine(line, column: column, animated: animated)
     }
     
@@ -490,7 +490,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setOption('showLineNumbers', BOOL )]
      */
-    public var showLineNumbers: Bool {
+    open var showLineNumbers: Bool {
         get {
             return editor.showLineNumbers
         }
@@ -504,7 +504,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.setOption('showGutter', BOOL )]
      */
-    public var showGutter: Bool {
+    open var showGutter: Bool {
         get {
             return editor.showGutter
         }
@@ -518,7 +518,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [editor.getSession().getLength()]
      */
-    public var length: Int {
+    open var length: Int {
         get {
             return editor.getSession().getLength()
         }
@@ -532,7 +532,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      - Parameter: line The line to get
      - Returns: The requested line
      */
-    public func getLine(line: Int) -> String {
+    open func getLine(_ line: Int) -> String {
         return editor.getSession().getLine(line)
     }
     
@@ -541,7 +541,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [EditSession.getNewLineMode()](http://ace.c9.io/api/edit_session.html#EditSession.getNewLineMode).
      */
-    public var newLineMode: String {
+    open var newLineMode: String {
         get {
             return editor.getSession().getNewLineMode()
         }
@@ -557,7 +557,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [EditSession.setUseSoftTabs(Boolean useSoftTabs)](http://ace.c9.io/api/edit_session.html#EditSession.setUseSoftTabs).
      */
-    public var useSoftTabs: Bool {
+    open var useSoftTabs: Bool {
         get {
             return editor.getSession().getUseSoftTabs()
         }
@@ -573,7 +573,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      Uses [EditSession.setTabSize(Number tabSize)](http://ace.c9.io/api/edit_session.html#EditSession.setTabSize).
      */
-    public var tabSize: Int {
+    open var tabSize: Int {
         get {
             return editor.getSession().getTabSize()
         }
@@ -593,7 +593,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      
      - Parameter: options A dictionary of search options.
      */
-    public func findAll(options: NSDictionary) -> [ACESearchItem]? {
+    open func findAll(_ options: NSDictionary) -> [ACESearchItem]? {
         let stringOptions = searchOptions(options)
         let script = "JSON.stringify(new Search().set(\(stringOptions)).findAll(editor.getSession()));"
         return ACESearchItem.fromString(context.evaluateScript(script).toString())
@@ -607,24 +607,24 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      - Parameter replacement: The replacement value
      - Parameter options: A dictionary of search options
      */
-    public func replaceAll(replacement: String, options: NSDictionary) {
+    open func replaceAll(_ replacement: String, options: NSDictionary) {
         
     }
     
     // MARK: - NSView overrides
-    public override func drawRect(dirtyRect: NSRect) {
-        super.drawRect(dirtyRect)
+    open override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
         resizeWebView()
     }
     
-    public override func resizeSubviewsWithOldSize(oldSize: NSSize) {
+    open override func resizeSubviews(withOldSize oldSize: NSSize) {
         resizeWebView()
     }
     
     // MARK: - WebView delegate methods
-    public var onReady: (() -> Void)?
+    open var onReady: (() -> Void)?
     
-    public func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!) {
+    open func webView(_ sender: WebView!, didFinishLoadFor frame: WebFrame!) {
         // Export ACEView class to the JSContext
         context = ACEContext(context: webView.mainFrame.javaScriptContext)
         context.aceView = self
@@ -641,21 +641,21 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
     
     // Warning: Getting segmentation errors in case of:
     // delegate?.function?()
-    public func webViewHeaderHeight(sender: WebView!) -> Float {
+    open func webViewHeaderHeight(_ sender: WebView!) -> Float {
         guard let printHeaderHeight = delegate?.printHeaderHeight else { return 0.0 }
         return printHeaderHeight()
     }
 
     // Warning: Getting segmentation errors in case of:
     // delegate?.function?()
-    public func webViewFooterHeight(sender: WebView!) -> Float {
+    open func webViewFooterHeight(_ sender: WebView!) -> Float {
         guard let printFooterHeight = delegate?.printFooterHeight else { return 0.0 }
         return printFooterHeight()
     }
 
     // Warning: Getting segmentation errors in case of:
     // delegate?.function?()
-    public func webView(sender: WebView!, drawHeaderInRect rect: NSRect) {
+    open func webView(_ sender: WebView!, drawHeaderIn rect: NSRect) {
         guard
             let delegate = delegate,
             let currentPage = printOperation?.currentPage else { return }
@@ -664,7 +664,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
 
     // Warning: Getting segmentation errors in case of:
     // delegate?.function?()
-    public func webView(sender: WebView!, drawFooterInRect rect: NSRect) {
+    open func webView(_ sender: WebView!, drawFooterIn rect: NSRect) {
         guard
             let delegate = delegate,
             let currentPage = printOperation?.currentPage else { return }
@@ -672,36 +672,36 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
     }
     
     
-    public var editable: Bool {
+    open var isEditable: Bool {
         return true
     }
     
     // MARK: - Private Scope
-    private var webView: WebView!
-    private var context: ACEContext!
-    private var textFinder: NSTextFinder!
-    private var padding: Int!
-    private var printingView: WebView!
-    private var printOperation: NSPrintOperation?
+    fileprivate var webView: WebView!
+    fileprivate var context: ACEContext!
+    fileprivate var textFinder: NSTextFinder!
+    fileprivate var padding: Int!
+    fileprivate var printingView: WebView!
+    fileprivate var printOperation: NSPrintOperation?
     
-    private func initWebView() {
+    fileprivate func initWebView() {
         webView = ACEWebView()
         webView.frameLoadDelegate = self
         
         printingView = WebView(frame: NSRect(x: 0.0, y: 0.0, width: 300.0, height: 1.0))
         printingView.mainFrame.frameView.allowsScrolling = false
-        printingView.UIDelegate = self
+        printingView.uiDelegate = self
         
         addSubview(webView)
-        borderType = .BezelBorder
+        borderType = .bezelBorder
         textFinder = NSTextFinder()
         textFinder.client = self
         textFinder.findBarContainer = self
         resizeWebView()
-        let bundle = NSBundle(forClass: ACEView.self)
+        let bundle = Bundle(for: ACEView.self)
         let javascriptDirectory = aceJavascriptDirectoryPath()
         let htmlPath = htmlPageFilePath()
-        let html = try! String(contentsOfFile: htmlPath, encoding: NSUTF8StringEncoding).stringByReplacingOccurrencesOfString(ACE_JAVASCRIPT_DIRECTORY, withString: javascriptDirectory)
+        let html = try! String(contentsOfFile: htmlPath, encoding: String.Encoding.utf8).replacingOccurrences(of: ACE_JAVASCRIPT_DIRECTORY, with: javascriptDirectory)
         webView.mainFrame.loadHTMLString(html, baseURL: bundle.bundleURL)
     }
     
@@ -715,19 +715,19 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
         initWebView()
     }
     
-    public override func awakeFromNib() {
+    open override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    public override var borderType: NSBorderType {
+    open override var borderType: NSBorderType {
         didSet {
-            padding = (borderType == .NoBorder) ? 0 : 1
+            padding = (borderType == .noBorder) ? 0 : 1
             resizeWebView()
         }
     }
     
-    private func resizeWebView() {
-        if let findBarContainer = textFinder?.findBarContainer where findBarContainer.findBarVisible {
+    fileprivate func resizeWebView() {
+        if let findBarContainer = textFinder?.findBarContainer, findBarContainer.isFindBarVisible {
             if let findBarHeight = findBarContainer.findBarView?.frame.height {
                 bounds.origin.y += findBarHeight
                 bounds.size.height -= findBarHeight
@@ -741,32 +741,32 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
         )
     }
     
-    private func showFindInterface() {
-        textFinder.performAction(.ShowFindInterface)
+    fileprivate func showFindInterface() {
+        textFinder.performAction(.showFindInterface)
         resizeWebView()
     }
     
-    private func showReplaceInterface() {
-        textFinder.performAction(.ShowReplaceInterface)
+    fileprivate func showReplaceInterface() {
+        textFinder.performAction(.showReplaceInterface)
         resizeWebView()
     }
     
-    private lazy var allowedSelectorNamesForJavascript: [String] = {
+    fileprivate lazy var allowedSelectorNamesForJavascript: [String] = {
         return ["showFindInterface", "showReplaceInterface", "aceTextDidChange", "printHTML:"]
     }()
     
-    @objc public func aceTextDidChange() {
-        let textDidChangeNotification = NSNotification(name: ACETextDidEndEditingNotification, object: self)
-        NSNotificationCenter.defaultCenter().postNotification(textDidChangeNotification)
+    @objc open func aceTextDidChange() {
+        let textDidChangeNotification = Notification(name: Notification.Name(rawValue: ACETextDidEndEditingNotification), object: self)
+        NotificationCenter.default.post(textDidChangeNotification)
         delegate?.textDidChange?(textDidChangeNotification)
 
-        self.willChangeValueForKey("string")
-        self.didChangeValueForKey("string")
+        self.willChangeValue(forKey: "string")
+        self.didChangeValue(forKey: "string")
     }
     
-    private func searchOptions(options: NSDictionary) -> String? {
-        if let json = try? NSJSONSerialization.dataWithJSONObject(options, options: NSJSONWritingOptions()) {
-            return String(data: json, encoding: NSUTF8StringEncoding)
+    fileprivate func searchOptions(_ options: NSDictionary) -> String? {
+        if let json = try? JSONSerialization.data(withJSONObject: options, options: JSONSerialization.WritingOptions()) {
+            return String(data: json, encoding: String.Encoding.utf8)
         }
         return nil
     }
@@ -776,14 +776,14 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
 // MARK: - NSTextFinderClient methods (Ext)
 extension ACEView {
 
-    public override func performTextFinderAction(sender: AnyObject?) {
-        guard let tag = sender?.valueForKey("tag") as? Int else { return }
+    open override func performTextFinderAction(_ sender: Any?) {
+        guard let tag = (sender as AnyObject).value(forKey: "tag") as? Int else { return }
         if let action = NSTextFinderAction(rawValue: tag) {
             textFinder.performAction(action)
         }
     }
     
-    public func scrollRangeToVisible(range: NSRange) {
+    public func scrollRangeToVisible(_ range: NSRange) {
         firstSelectedRange = range
         context.evaluateScript(
             "editor.session.selection.clearSelection();" +
@@ -792,7 +792,7 @@ extension ACEView {
         )
     }
     
-    public func replaceCharactersInRange(range: NSRange, withString string: String) {
+    public func replaceCharacters(in range: NSRange, with string: String) {
         context.evaluateScript(
             "editor.session.replace(new Range(\(ACEStringFromRange(range, string: string))), \"\(string)\");"
         )
@@ -801,13 +801,13 @@ extension ACEView {
 
 // MARK: - Helpers (Ext)
 extension ACEView {
-    private func aceJavascriptDirectoryPath() -> String {
-        let bundle = NSBundle(forClass: ACEView.self)
-        return (bundle.pathForResource("ace", ofType: "js")! as NSString).stringByDeletingLastPathComponent
+    fileprivate func aceJavascriptDirectoryPath() -> String {
+        let bundle = Bundle(for: ACEView.self)
+        return (bundle.path(forResource: "ace", ofType: "js")! as NSString).deletingLastPathComponent
     }
     
-    private func htmlPageFilePath() -> String {
-        let bundle = NSBundle(forClass: ACEView.self)
-        return bundle.pathForResource("index", ofType: "html")!
+    fileprivate func htmlPageFilePath() -> String {
+        let bundle = Bundle(for: ACEView.self)
+        return bundle.path(forResource: "index", ofType: "html")!
     }
 }
