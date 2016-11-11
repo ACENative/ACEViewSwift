@@ -26,8 +26,8 @@ struct ACERange: CustomStringConvertible {
 
 let ACERangeZero = ACERange(row: ACERangeComponentZero, column: ACERangeComponentZero)
 
-func ACEMakeRange(range: NSRange, string swiftString: String) -> ACERange {
-    let string: NSString = swiftString
+func ACEMakeRange(_ range: NSRange, string swiftString: String) -> ACERange {
+    let string: NSString = swiftString as NSString
     var aceRange = ACERangeZero
     var characterCountIncludingCurrentLine = 0
     var characterCountForCurrentLine = 0
@@ -41,7 +41,7 @@ func ACEMakeRange(range: NSRange, string swiftString: String) -> ACERange {
     var lineRange: NSRange
     
     while index < stringLength {
-        lineRange = string.lineRangeForRange(NSMakeRange(index, 0))
+        lineRange = string.lineRange(for: NSMakeRange(index, 0))
         index = NSMaxRange(lineRange)
         
         characterCountForCurrentLine = lineRange.length
@@ -66,7 +66,7 @@ func ACEMakeRange(range: NSRange, string swiftString: String) -> ACERange {
     return aceRange
 }
 
-func ACEStringFromRange(range: NSRange, string: String) -> String {
+func ACEStringFromRange(_ range: NSRange, string: String) -> String {
     let aceRange = ACEMakeRange(range, string: string)
     return "\(aceRange.row.start), \(aceRange.column.start), \(aceRange.row.end), \(aceRange.column.end)"
 }

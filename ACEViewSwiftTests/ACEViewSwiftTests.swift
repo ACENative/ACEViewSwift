@@ -12,16 +12,16 @@ import XCTest
 //MARK: Helpers
 extension XCTestCase {
     
-    func assertBooleanProperty(inout property: Bool, name: String, defaultValue: Bool) {
+    func assertBooleanProperty(_ property: inout Bool, name: String, defaultValue: Bool) {
         
-        func flagMsg(flag: Bool) -> String { return flag ? "turned on" : "turned off" }
+        func flagMsg(_ flag: Bool) -> String { return flag ? "turned on" : "turned off" }
         
         XCTAssertEqual(property, defaultValue, "\(name) should be \(flagMsg(defaultValue)) by default")
         property = !defaultValue
         XCTAssertEqual(property, !defaultValue, "\(name) should be \(flagMsg(!defaultValue)) now")
     }
     
-    func assertIntProperty(inout property: Int, name: String, defaultValue: Int, testValue: Int) {
+    func assertIntProperty(_ property: inout Int, name: String, defaultValue: Int, testValue: Int) {
         XCTAssertEqual(property, defaultValue, "\(name) should be \(defaultValue) by default")
         property = testValue
         XCTAssertEqual(property, testValue, "\(name) should be \(testValue) now")
@@ -46,14 +46,14 @@ class ACEViewSwiftTests: XCTestCase {
     var aceView: ACEView!
     var delegate: ACEDelegate!
     
-    func wait(seconds: NSTimeInterval = 5.0) {
-        waitForExpectationsWithTimeout(seconds, handler: nil)
+    func wait(seconds: TimeInterval = 5.0) {
+        waitForExpectations(timeout: seconds, handler: nil)
     }
     
-    func waitWithRunLoop(seconds: NSTimeInterval) {
-        let startTime = NSDate.timeIntervalSinceReferenceDate()
-        while NSDate.timeIntervalSinceReferenceDate() - startTime < seconds {
-            CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.1, false);
+    func waitWithRunLoop(seconds: TimeInterval) {
+        let startTime = NSDate.timeIntervalSinceReferenceDate
+        while NSDate.timeIntervalSinceReferenceDate - startTime < seconds {
+            CFRunLoopRunInMode(CFRunLoopMode.defaultMode, 0.1, false);
         }
     }
     
@@ -65,7 +65,7 @@ class ACEViewSwiftTests: XCTestCase {
         delegate = ACEDelegate()
         aceView.delegate = delegate
         
-        let readyExpectation = expectationWithDescription("onReady")
+        let readyExpectation = expectation(description: "onReady")
         
         aceView.onReady = {
             readyExpectation.fulfill()
@@ -89,7 +89,7 @@ class ACEViewSwiftTests: XCTestCase {
     
     func testMode() {
         XCTAssertEqual(self.aceView.mode.name, "text", "Mode should be 'text' by default")
-        let newMode = ACEMode.HTML
+        let newMode = ACEMode.html
         self.aceView.mode = newMode
         XCTAssertEqual(self.aceView.mode, newMode)
         XCTAssertEqual(self.aceView.mode.name, "html", "Mode should be now changed to 'html'")
@@ -97,18 +97,18 @@ class ACEViewSwiftTests: XCTestCase {
     
     func testModeInline() {
         XCTAssertEqual(self.aceView.mode.name, "text", "Mode should be 'text' by default")
-        let newMode = ACEMode.PHP
+        let newMode = ACEMode.php
         self.aceView.setMode(newMode, inline: true)
-        waitWithRunLoop(1)
+        waitWithRunLoop(seconds: 1)
         XCTAssertEqual(self.aceView.mode, newMode)
         XCTAssertEqual(self.aceView.mode.name, "php", "Mode should be now changed to 'html'")
     }
     
     func testTheme() {
         XCTAssertEqual(self.aceView.theme.name, "None", "Theme should be 'None' by default")
-        let newTheme = ACETheme.Monokai
+        let newTheme = ACETheme.monokai
         self.aceView.theme = newTheme
-        XCTAssertEqual(self.aceView.theme, ACETheme.Monokai)
+        XCTAssertEqual(self.aceView.theme, ACETheme.monokai)
         XCTAssertEqual(self.aceView.theme.name, "monokai", "Mode should be now changed to 'Monokai'")
     }
     
@@ -170,13 +170,13 @@ class ACEViewSwiftTests: XCTestCase {
     }
     
     func testKeyboardHandler() {
-        XCTAssertEqual(self.aceView.keyboardHandler, ACEKeyboardHandler.Ace, "Keyboard handler should be Ace by default")
-        self.aceView.keyboardHandler = .Emacs
-        XCTAssertEqual(self.aceView.keyboardHandler, ACEKeyboardHandler.Emacs, "Keyboard handler should be Emacs now")
-        self.aceView.keyboardHandler = .Vim
-        XCTAssertEqual(self.aceView.keyboardHandler, ACEKeyboardHandler.Vim, "Keyboard handler should be Vim now")
-        self.aceView.keyboardHandler = .Ace
-        XCTAssertEqual(self.aceView.keyboardHandler, ACEKeyboardHandler.Ace, "Keyboard handler should be back to Ace now")
+        XCTAssertEqual(self.aceView.keyboardHandler, ACEKeyboardHandler.ace, "Keyboard handler should be Ace by default")
+        self.aceView.keyboardHandler = .emacs
+        XCTAssertEqual(self.aceView.keyboardHandler, ACEKeyboardHandler.emacs, "Keyboard handler should be Emacs now")
+        self.aceView.keyboardHandler = .vim
+        XCTAssertEqual(self.aceView.keyboardHandler, ACEKeyboardHandler.vim, "Keyboard handler should be Vim now")
+        self.aceView.keyboardHandler = .ace
+        XCTAssertEqual(self.aceView.keyboardHandler, ACEKeyboardHandler.ace, "Keyboard handler should be back to Ace now")
     }
     
     func testBasicAutocompletion() {
@@ -247,14 +247,14 @@ class ACEViewSwiftTests: XCTestCase {
     }
     
     func testEditability() {
-        XCTAssertTrue(self.aceView.editable)
+        XCTAssertTrue(self.aceView.isEditable)
     }
     
     var stringCopy = ""
     
     func testStringBinding() {
         self.stringCopy = ""
-        self.bind("stringCopy", toObject: self.aceView, withKeyPath: "string", options: nil)
+        self.bind("stringCopy", to: self.aceView, withKeyPath: "string", options: nil)
         self.aceView.string = "hello"
         XCTAssertEqual(self.stringCopy, "hello")
     }
