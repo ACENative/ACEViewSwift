@@ -23,18 +23,18 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let htmlFilePath = NSBundle.mainBundle().pathForResource("HTML5", ofType: "html")!
-        let html = try! String(contentsOfFile: htmlFilePath, encoding: NSUTF8StringEncoding)
+        let htmlFilePath = Bundle.main.path(forResource: "HTML5", ofType: "html")!
+        let html = try! String(contentsOfFile: htmlFilePath, encoding: String.Encoding.utf8)
         
-        syntaxPopup.selectItemAtIndex(ACEMode.HTML.rawValue)
-        themePopup.selectItemAtIndex(ACETheme.Xcode.rawValue)
-        keyboardHandlerPopup.selectItemAtIndex(ACEKeyboardHandler.Ace.rawValue)
+        syntaxPopup.selectItem(at: ACEMode.html.rawValue)
+        themePopup.selectItem(at: ACETheme.xcode.rawValue)
+        keyboardHandlerPopup.selectItem(at: ACEKeyboardHandler.ace.rawValue)
         
         aceView.onReady = { [unowned self] in
             self.aceView.string = html
-            self.aceView.mode = .HTML
-            self.aceView.theme = .Xcode
-            self.aceView.keyboardHandler = .Ace
+            self.aceView.mode = .html
+            self.aceView.theme = .xcode
+            self.aceView.keyboardHandler = .ace
             self.aceView.showPrintMargin = true
             self.aceView.showInvisibles = false
             self.aceView.basicAutoCompletion = true
@@ -45,21 +45,15 @@ class ViewController: NSViewController {
         }
     }
 
-    override var representedObject: AnyObject? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
-    @IBAction func syntaxModeChanged(sender: NSPopUpButton) {
+    @IBAction func syntaxModeChanged(_ sender: NSPopUpButton) {
         aceView.mode = ACEMode(rawValue: sender.indexOfSelectedItem)!
     }
 
-    @IBAction func themeChanged(sender: NSPopUpButton) {
+    @IBAction func themeChanged(_ sender: NSPopUpButton) {
         aceView.theme = ACETheme(rawValue: sender.indexOfSelectedItem)!
     }
     
-    @IBAction func keyboardHandlerChanged(sender: NSPopUpButton) {
+    @IBAction func keyboardHandlerChanged(_ sender: NSPopUpButton) {
         aceView.keyboardHandler = ACEKeyboardHandler(rawValue: sender.indexOfSelectedItem)!
     }
 

@@ -10,28 +10,28 @@ import Foundation
 import WebKit
 
 class ACEWebView: WebView {
-    override func performDragOperation(sender: NSDraggingInfo) -> Bool {
+    override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
         // disable all dragging into the WebView
         return false
     }
 }
 
-public class ACESearchItem: NSObject {
+open class ACESearchItem: NSObject {
     var startColumn: Int = 0
     var startRow: Int = 0
     var endColumn: Int = 0
     var endRow: Int = 0
     
-    static func fromString(text: String) -> [ACESearchItem]? {
-        guard let data = text.dataUsingEncoding(NSUTF8StringEncoding) else { return nil }
-        guard let object = try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) else { return nil }
+    static func fromString(_ text: String) -> [ACESearchItem]? {
+        guard let data = text.data(using: String.Encoding.utf8) else { return nil }
+        guard let object = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) else { return nil }
         if let object = object as? NSArray {
             return convertMultipleObjects(object)
         }
         return nil
     }
     
-    private static func convertSingleObject(object: NSDictionary) -> ACESearchItem {
+    fileprivate static func convertSingleObject(_ object: NSDictionary) -> ACESearchItem {
         let result = ACESearchItem()
         
         if let _ = object["start"] as? NSDictionary {
@@ -47,7 +47,7 @@ public class ACESearchItem: NSObject {
         return result
     }
     
-    private static func convertMultipleObjects(objects: NSArray) -> [ACESearchItem] {
+    fileprivate static func convertMultipleObjects(_ objects: NSArray) -> [ACESearchItem] {
         var results = [ACESearchItem]()
         for object in objects {
             if let object = object as? NSDictionary {
@@ -57,8 +57,8 @@ public class ACESearchItem: NSObject {
         return results
     }
     
-    private static func intOrZero(dict: NSDictionary, key: String) -> Int {
-        guard let val = dict.objectForKey(key)?.integerValue else { return 0 }
+    fileprivate static func intOrZero(_ dict: NSDictionary, key: String) -> Int {
+        guard let val = dict[key] as? Int else { return 0 }
         return val
     }
 }

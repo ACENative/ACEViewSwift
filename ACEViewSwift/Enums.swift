@@ -11,56 +11,56 @@ import Foundation
 /// The ACE Syntax Highlighting Mode
 public enum ACEMode: Int {
     case
-    ASCIIDoc,
-    C9Search,
-    CPP,
-    Clojure,
-    Coffee,
-    Coldfusion,
-    CSharp,
-    CSS,
-    Diff,
-    GLSL,
-    Golang,
-    Groovy,
-    Haxe,
-    HTML,
-    Jade,
-    Java,
-    JavaScript,
-    JSON,
-    JSP,
-    JSX,
-    Latex,
-    LESS,
-    Liquid,
-    Lua,
-    Luapage,
-    Markdown,
-    OCaml,
-    Perl,
-    PGSQL,
-    PHP,
-    Powershell,
-    Python,
-    ObjC,
-    Ruby,
-    SCAD,
-    Scala,
-    SCSS,
-    SH,
-    SQL,
-    SVG,
-    Swift,
-    Tcl,
-    Text,
-    Textile,
-    Typescript,
-    XML,
-    XQuery,
-    YAML,
+    asciiDoc,
+    c9Search,
+    cpp,
+    clojure,
+    coffee,
+    coldfusion,
+    cSharp,
+    css,
+    diff,
+    glsl,
+    golang,
+    groovy,
+    haxe,
+    html,
+    jade,
+    java,
+    javaScript,
+    json,
+    jsp,
+    jsx,
+    latex,
+    less,
+    liquid,
+    lua,
+    luapage,
+    markdown,
+    oCaml,
+    perl,
+    pgsql,
+    php,
+    powershell,
+    python,
+    objC,
+    ruby,
+    scad,
+    scala,
+    scss,
+    sh,
+    sql,
+    svg,
+    swift,
+    tcl,
+    text,
+    textile,
+    typescript,
+    xml,
+    xQuery,
+    yaml,
     
-    Count // keep track of the enum size automatically
+    count // keep track of the enum size automatically
     
     /**
     The ACE Mode names
@@ -188,7 +188,7 @@ public enum ACEMode: Int {
     
     /// The designated initializer
     init(name: String) {
-        let index = ACEMode.modeNames().indexOf(name)
+        let index = ACEMode.modeNames().index(of: name)
         self = ACEMode(rawValue: index!)!
     }
 }
@@ -196,37 +196,37 @@ public enum ACEMode: Int {
 /// The ACE Theme
 public enum ACETheme: Int {
     case
-    Ambiance = 0,
-    Chrome,
-    Clouds,
-    CloudsMidnight,
-    Cobalt,
-    CrimsonEditor,
-    Dawn,
-    Dreamweaver,
-    Eclipse,
-    Github,
-    IdleFingers,
-    Merbivore,
-    MerbivoreSoft,
-    MonoIndustrial,
-    Monokai,
-    PastelOnDark,
-    SolarizedDark,
-    SolarizedLight,
-    Textmate,
-    Tomorrow,
-    TomorrowNight,
-    TomorrowNightBlue,
-    TomorrowNightBright,
-    TomorrowNightEighties,
-    Twilight,
-    VibrantInk,
-    Xcode,
+    ambiance = 0,
+    chrome,
+    clouds,
+    cloudsMidnight,
+    cobalt,
+    crimsonEditor,
+    dawn,
+    dreamweaver,
+    eclipse,
+    github,
+    idleFingers,
+    merbivore,
+    merbivoreSoft,
+    monoIndustrial,
+    monokai,
+    pastelOnDark,
+    solarizedDark,
+    solarizedLight,
+    textmate,
+    tomorrow,
+    tomorrowNight,
+    tomorrowNightBlue,
+    tomorrowNightBright,
+    tomorrowNightEighties,
+    twilight,
+    vibrantInk,
+    xcode,
     
-    Count,  // keep track of the enum size automatically
+    count,  // keep track of the enum size automatically
     
-    None
+    none
     
     public static func themeNames() -> [String] {
         return [
@@ -293,28 +293,28 @@ public enum ACETheme: Int {
     }
     
     var name: String {
-        guard self != .None else { return "None" }
+        guard self != .none else { return "None" }
         return ACETheme.themeNames()[self.rawValue]
     }
     
     var humanName: String {
-        guard self != .None else { return "None" }
+        guard self != .none else { return "None" }
         return ACETheme.humanThemeNames()[self.rawValue]
     }
     
     init(name: String) {
-        if let index = ACETheme.themeNames().indexOf(name) {
+        if let index = ACETheme.themeNames().index(of: name) {
             self = ACETheme(rawValue: index)!
         } else {
-            self = ACETheme.None
+            self = ACETheme.none
         }
     }
 }
 
 
 public enum ACEKeyboardHandler: Int {
-    case Ace, Emacs, Vim,
-    Count // keep track of the enum size automatically
+    case ace, emacs, vim,
+    count // keep track of the enum size automatically
     
     public static func commands() -> [String] {
         return [
@@ -341,7 +341,7 @@ public enum ACEKeyboardHandler: Int {
     }
     
     init(command: String) {
-        let index = ACEKeyboardHandler.commands().indexOf(command)!
+        let index = ACEKeyboardHandler.commands().index(of: command)!
         self = ACEKeyboardHandler(rawValue: index)!
     }
 }
