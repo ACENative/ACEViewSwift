@@ -595,7 +595,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
      */
     open func findAll(_ options: NSDictionary) -> [ACESearchItem]? {
         let stringOptions = searchOptions(options)
-        let script = "JSON.stringify(new Search().set(\(stringOptions)).findAll(editor.getSession()));"
+        let script = "JSON.stringify(new Search().set(\(String(describing: stringOptions))).findAll(editor.getSession()));"
         return ACESearchItem.fromString(context.evaluateScript(script).toString())
     }
 
@@ -630,7 +630,7 @@ public let ACETextDidEndEditingNotification = "ACETextDidEndEditingNotification"
         context.aceView = self
         editor = context.editor
         context.exceptionHandler = {context, value in
-            Swift.print("Context Exception: \(value)")
+            Swift.print("Context Exception: \(String(describing: value))")
         }
         
         // Callbacks
@@ -778,7 +778,7 @@ extension ACEView {
 
     open override func performTextFinderAction(_ sender: Any?) {
         guard let tag = (sender as AnyObject).value(forKey: "tag") as? Int else { return }
-        if let action = NSTextFinderAction(rawValue: tag) {
+        if let action = NSTextFinder.Action(rawValue: tag) {
             textFinder.performAction(action)
         }
     }

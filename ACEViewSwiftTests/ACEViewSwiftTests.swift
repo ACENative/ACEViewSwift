@@ -254,7 +254,7 @@ class ACEViewSwiftTests: XCTestCase {
     
     func testStringBinding() {
         self.stringCopy = ""
-        self.bind("stringCopy", to: self.aceView, withKeyPath: "string", options: nil)
+        self.bind(NSBindingName(rawValue: "stringCopy"), to: self.aceView, withKeyPath: "string", options: nil)
         self.aceView.string = "hello"
         XCTAssertEqual(self.stringCopy, "hello")
     }
