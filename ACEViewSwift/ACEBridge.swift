@@ -457,6 +457,7 @@ class ACEContext {
         self.editor = ACEEditor(jsValue: context.objectForKeyedSubscript("editor"))
     }
     
+    @discardableResult
     func evaluateScript(_ script: String) -> JSValue! {
         return jsContext.evaluateScript(script)
     }
