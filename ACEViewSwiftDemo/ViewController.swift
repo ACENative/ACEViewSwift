@@ -16,10 +16,10 @@ class ViewController: NSViewController {
     @IBOutlet weak var themePopup: NSPopUpButton!
     @IBOutlet weak var keyboardHandlerPopup: NSPopUpButton!
     
-    let syntaxModes = ACEMode.humanModeNames()
-    let themes      = ACETheme.humanThemeNames()
-    let handlers    = ACEKeyboardHandler.humanNames()
-    
+    @objc dynamic let syntaxModes = ACEMode.humanModeNames()
+    @objc dynamic let themes      = ACETheme.humanThemeNames()
+    @objc dynamic let handlers    = ACEKeyboardHandler.humanNames()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

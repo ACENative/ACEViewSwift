@@ -440,7 +440,7 @@ class ACEContext {
     
     weak var aceView: ACEView? {
         didSet {
-            jsContext.setObject(aceView, forKeyedSubscript: "ACEView" as (NSCopying & NSObjectProtocol)!)
+            jsContext.setObject(aceView, forKeyedSubscript: "ACEView" as (NSCopying & NSObjectProtocol))
         }
     }
     
