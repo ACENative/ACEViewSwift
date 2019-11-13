@@ -24,7 +24,12 @@ class ACEBridgedObject {
      _Note:_ By default it directly translates a call based on the caller signature
      */
     @discardableResult func jsCall(_ functionName: String = #function, arguments: [AnyObject]! = nil) -> JSValue {
-        let selector = functionName.replacingOccurrences(of: "()", with: "")
+        let selector: String
+        if let regex = try? NSRegularExpression(pattern: "\\(\\S*\\)", options: .caseInsensitive) {
+            selector = regex.stringByReplacingMatches(in: functionName, options: [], range: NSRange(location: 0, length: functionName.count), withTemplate: "")
+        } else {
+            selector = functionName
+        }
         return jsValue.invokeMethod(selector, withArguments: arguments)
     }
     
