@@ -24,8 +24,10 @@ class ACEBridgedObject {
      _Note:_ By default it directly translates a call based on the caller signature
      */
     @discardableResult func jsCall(_ functionName: String = #function, arguments: [AnyObject]! = nil) -> JSValue {
-        let selector = functionName.replacingOccurrences(of: "()", with: "")
-        return jsValue.invokeMethod(selector, withArguments: arguments)
+        guard let selector = functionName.split(separator: "(").first else {
+            return JSValue(nullIn: JSContext())
+        }
+        return jsValue.invokeMethod(String(selector), withArguments: arguments)
     }
     
 }

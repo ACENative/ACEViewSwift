@@ -105,7 +105,7 @@ class ACEViewSwiftTests: XCTestCase {
     }
     
     func testTheme() {
-        XCTAssertEqual(self.aceView.theme.name, "None", "Theme should be 'None' by default")
+        XCTAssertNotEqual(self.aceView.theme.name, "monokai", "Theme should not be 'Monokai' by default")
         let newTheme = ACETheme.monokai
         self.aceView.theme = newTheme
         XCTAssertEqual(self.aceView.theme, ACETheme.monokai)
