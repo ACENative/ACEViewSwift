@@ -9,7 +9,7 @@
 import Foundation
 
 /// The ACE Syntax Highlighting Mode
-public enum ACEMode: Int {
+public enum ACEMode: Int, CaseIterable {
     case
     asciiDoc,
     c9Search,
@@ -58,9 +58,7 @@ public enum ACEMode: Int {
     typescript,
     xml,
     xQuery,
-    yaml,
-    
-    count // keep track of the enum size automatically
+    yaml
     
     /**
     The ACE Mode names
@@ -188,13 +186,13 @@ public enum ACEMode: Int {
     
     /// The designated initializer
     init(name: String) {
-        let index = ACEMode.modeNames().index(of: name)
+        let index = ACEMode.modeNames().firstIndex(of: name)
         self = ACEMode(rawValue: index!)!
     }
 }
 
 /// The ACE Theme
-public enum ACETheme: Int {
+public enum ACETheme: Int, CaseIterable {
     case
     ambiance = 0,
     chrome,
@@ -223,9 +221,7 @@ public enum ACETheme: Int {
     twilight,
     vibrantInk,
     xcode,
-    
-    count,  // keep track of the enum size automatically
-    
+
     none
     
     public static func themeNames() -> [String] {
@@ -303,7 +299,7 @@ public enum ACETheme: Int {
     }
     
     init(name: String) {
-        if let index = ACETheme.themeNames().index(of: name) {
+        if let index = ACETheme.themeNames().firstIndex(of: name) {
             self = ACETheme(rawValue: index)!
         } else {
             self = ACETheme.none
@@ -312,9 +308,8 @@ public enum ACETheme: Int {
 }
 
 
-public enum ACEKeyboardHandler: Int {
-    case ace, emacs, vim,
-    count // keep track of the enum size automatically
+public enum ACEKeyboardHandler: Int, CaseIterable {
+    case ace, emacs, vim
     
     public static func commands() -> [String] {
         return [
@@ -341,7 +336,7 @@ public enum ACEKeyboardHandler: Int {
     }
     
     init(command: String) {
-        let index = ACEKeyboardHandler.commands().index(of: command)!
+        let index = ACEKeyboardHandler.commands().firstIndex(of: command)!
         self = ACEKeyboardHandler(rawValue: index)!
     }
 }
