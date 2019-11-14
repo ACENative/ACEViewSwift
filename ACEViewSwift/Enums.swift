@@ -9,7 +9,7 @@
 import Foundation
 
 /// The ACE Syntax Highlighting Mode
-public enum ACEMode: Int {
+public enum ACEMode: Int, CaseIterable {
     case
     asciiDoc,
     c9Search,
@@ -58,9 +58,7 @@ public enum ACEMode: Int {
     typescript,
     xml,
     xQuery,
-    yaml,
-    
-    count // keep track of the enum size automatically
+    yaml
     
     /**
     The ACE Mode names
@@ -194,7 +192,7 @@ public enum ACEMode: Int {
 }
 
 /// The ACE Theme
-public enum ACETheme: Int {
+public enum ACETheme: Int, CaseIterable {
     case
     ambiance = 0,
     chrome,
@@ -223,9 +221,7 @@ public enum ACETheme: Int {
     twilight,
     vibrantInk,
     xcode,
-    
-    count,  // keep track of the enum size automatically
-    
+
     none
     
     public static func themeNames() -> [String] {
@@ -312,9 +308,8 @@ public enum ACETheme: Int {
 }
 
 
-public enum ACEKeyboardHandler: Int {
-    case ace, emacs, vim,
-    count // keep track of the enum size automatically
+public enum ACEKeyboardHandler: Int, CaseIterable {
+    case ace, emacs, vim
     
     public static func commands() -> [String] {
         return [
