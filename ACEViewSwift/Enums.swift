@@ -188,7 +188,7 @@ public enum ACEMode: Int {
     
     /// The designated initializer
     init(name: String) {
-        let index = ACEMode.modeNames().index(of: name)
+        let index = ACEMode.modeNames().firstIndex(of: name)
         self = ACEMode(rawValue: index!)!
     }
 }
@@ -303,7 +303,7 @@ public enum ACETheme: Int {
     }
     
     init(name: String) {
-        if let index = ACETheme.themeNames().index(of: name) {
+        if let index = ACETheme.themeNames().firstIndex(of: name) {
             self = ACETheme(rawValue: index)!
         } else {
             self = ACETheme.none
@@ -341,7 +341,7 @@ public enum ACEKeyboardHandler: Int {
     }
     
     init(command: String) {
-        let index = ACEKeyboardHandler.commands().index(of: command)!
+        let index = ACEKeyboardHandler.commands().firstIndex(of: command)!
         self = ACEKeyboardHandler(rawValue: index)!
     }
 }
